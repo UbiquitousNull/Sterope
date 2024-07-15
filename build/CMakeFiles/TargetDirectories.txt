@@ -1,0 +1,2 @@
+D:/VSC/Sterope/build/CMakeFiles/edit_cache.dir
+D:/VSC/Sterope/build/CMakeFiles/rebuild_cache.dir
