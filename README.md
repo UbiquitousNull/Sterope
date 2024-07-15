@@ -1,6 +1,6 @@
 # `Sterope`
 
-> @SkyBlueSpace do what you will
+> [@SkyBlueSpace](https://github.com/SkyBlueSpace) do what you will
 >
 > \- Jonathan
 
