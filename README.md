@@ -6,7 +6,7 @@
 
 ## Discription
 
-`Sterope` is a pet project for the sole purpose of learing C and maybe C++.
+`Sterope` is a pet project for the sole purpose of learning C and maybe C++.
 
 > This is a 'pet' project that I have ~forcefully~ invited a friend to join me in making.
 > 
