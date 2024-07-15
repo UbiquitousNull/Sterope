@@ -1,6 +1,12 @@
 # `Sterope`
 
+> @SkyBlueSpace do what you will
+>
+> \- Jonathan
+
 ## Discription
+
+
 
 `Sterope` is a pet project for the sole purpose of learing C and maybe C++.
 
