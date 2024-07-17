@@ -1,6 +1,6 @@
 /*
  *
- *  Main program file
+ *  Main program file.
  *
  */
 
@@ -11,4 +11,6 @@ int main()
     /*
      *
      */
+
+     return 0;
 }
