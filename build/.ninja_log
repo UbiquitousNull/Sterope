@@ -1,0 +1,7 @@
+# ninja log v6
+7	24	7431757840839438	clean	9c4b4372737ab8da
+22	568	7432279063804650	CMakeFiles/SteropeLauncher.dir/main/src/main.c.obj	f1fbbe671b6b0de2
+27	569	7432279063854583	CMakeFiles/SteropeLauncher.dir/main/src/window.c.obj	f776029cc745027d
+24	601	7432283116257804	CMakeFiles/SteropeLauncher.dir/main/src/window.c.obj	abe2d03bd1c6af5d
+21	605	7432283116217788	CMakeFiles/SteropeLauncher.dir/main/src/main.c.obj	83b709cb27cf6a00
+605	745	7432283122067775	SteropeLauncher.exe	235674514e083266

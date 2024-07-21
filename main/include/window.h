@@ -9,9 +9,13 @@
      *
      */
 
-void initSDL();
+#include <stdint.h>
 
-void createWindow();
+void createMainWindow(const char* title, int winPosX, int winPosY, int winWidth, int winHeight, uint32_t winFlags);
+
+void testWindow();
+
+void initSDL(uint32_t initFlags);
 
 void quitSDL();
 
