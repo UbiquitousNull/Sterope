@@ -1,7 +1,4 @@
 # ninja log v6
-21	605	7437783488224560	CMakeFiles/SteropeLauncher.dir/main/src/main.c.obj	a82573b10328197a
-26	617	7437783488264604	CMakeFiles/SteropeLauncher.dir/main/src/window.c.obj	3d41b2130d29d8f4
-617	877	7437783494182977	SteropeLauncher.exe	a4d5cf0f8fda8d75
-17	674	7437784013650122	CMakeFiles/SteropeLauncher.dir/main/src/main.c.obj	a82573b10328197a
-21	682	7437784013691277	CMakeFiles/SteropeLauncher.dir/main/src/window.c.obj	3d41b2130d29d8f4
-683	890	7437784020304787	SteropeLauncher.exe	a4d5cf0f8fda8d75
+15	568	7437791826330272	CMakeFiles/SteropeLauncher.dir/main/src/main.c.obj	a82573b10328197a
+19	578	7437791826383475	CMakeFiles/SteropeLauncher.dir/main/src/window.c.obj	3d41b2130d29d8f4
+578	719	7437791831971257	SteropeLauncher.exe	a4d5cf0f8fda8d75
