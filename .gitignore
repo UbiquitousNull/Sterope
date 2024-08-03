@@ -72,3 +72,6 @@ CMakeUserPresets.json
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+
+# Build location
+build/*
