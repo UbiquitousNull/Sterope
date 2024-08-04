@@ -10,11 +10,17 @@
      */
 
 #include <stdint.h>
+#include <glad/gl.h>
+#include <KHR/khrplatform.h>
+#include "SDL.h"
+#include "SDL_video.h"
 
-void createWindow(const char* title, int winPosX, int winPosY, int winWidth, int winHeight, uint32_t winFlags);
+void createMainWindow(const char* title, int winPosX, int winPosY, int winWidth, int winHeight, uint32_t winFlags);
+
+void initGLAD2(SDL_Window* window);
 
 void menuTest();
 
-void testWindow();
+SDL_Window* testWindow();
 
 #endif // MAIN_H

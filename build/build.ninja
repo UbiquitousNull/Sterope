@@ -52,21 +52,21 @@ build cmake_object_order_depends_target_SteropeLauncher: phony || .
 build CMakeFiles/SteropeLauncher.dir/main/src/main.c.obj: C_COMPILER__SteropeLauncher_unscanned_Debug D$:/VSC/Sterope/main/src/main.c || cmake_object_order_depends_target_SteropeLauncher
   DEP_FILE = CMakeFiles\SteropeLauncher.dir\main\src\main.c.obj.d
   FLAGS = -g -std=gnu99
-  INCLUDES = -ID:/VSC/Sterope/main/include/core -ID:/VSC/Sterope/main/include/SDL2 -ID:/VSC/Sterope/main/include/GLAD2 -isystem C:/msys64/mingw64/include/SDL2
+  INCLUDES = -ID:/VSC/Sterope/main/include/GLAD2 -ID:/VSC/Sterope/main/include/core -ID:/VSC/Sterope/main/include/SDL2 -isystem C:/msys64/mingw64/include/SDL2
   OBJECT_DIR = CMakeFiles\SteropeLauncher.dir
   OBJECT_FILE_DIR = CMakeFiles\SteropeLauncher.dir\main\src
 
 build CMakeFiles/SteropeLauncher.dir/main/src/window.c.obj: C_COMPILER__SteropeLauncher_unscanned_Debug D$:/VSC/Sterope/main/src/window.c || cmake_object_order_depends_target_SteropeLauncher
   DEP_FILE = CMakeFiles\SteropeLauncher.dir\main\src\window.c.obj.d
   FLAGS = -g -std=gnu99
-  INCLUDES = -ID:/VSC/Sterope/main/include/core -ID:/VSC/Sterope/main/include/SDL2 -ID:/VSC/Sterope/main/include/GLAD2 -isystem C:/msys64/mingw64/include/SDL2
+  INCLUDES = -ID:/VSC/Sterope/main/include/GLAD2 -ID:/VSC/Sterope/main/include/core -ID:/VSC/Sterope/main/include/SDL2 -isystem C:/msys64/mingw64/include/SDL2
   OBJECT_DIR = CMakeFiles\SteropeLauncher.dir
   OBJECT_FILE_DIR = CMakeFiles\SteropeLauncher.dir\main\src
 
 build CMakeFiles/SteropeLauncher.dir/main/src/gl.c.obj: C_COMPILER__SteropeLauncher_unscanned_Debug D$:/VSC/Sterope/main/src/gl.c || cmake_object_order_depends_target_SteropeLauncher
   DEP_FILE = CMakeFiles\SteropeLauncher.dir\main\src\gl.c.obj.d
   FLAGS = -g -std=gnu99
-  INCLUDES = -ID:/VSC/Sterope/main/include/core -ID:/VSC/Sterope/main/include/SDL2 -ID:/VSC/Sterope/main/include/GLAD2 -isystem C:/msys64/mingw64/include/SDL2
+  INCLUDES = -ID:/VSC/Sterope/main/include/GLAD2 -ID:/VSC/Sterope/main/include/core -ID:/VSC/Sterope/main/include/SDL2 -isystem C:/msys64/mingw64/include/SDL2
   OBJECT_DIR = CMakeFiles\SteropeLauncher.dir
   OBJECT_FILE_DIR = CMakeFiles\SteropeLauncher.dir\main\src
 

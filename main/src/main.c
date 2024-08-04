@@ -12,8 +12,8 @@
 
 int main(int argc, char *argv[])
 {
-    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
-        printf("SDL Initialization error: %s\n", SDL_GetError());
+    if (SDL_Init(SDL_INIT_VIDEO) > 0) {
+        fprintf(stderr, "SDL Initialization error: %s\n", SDL_GetError());
         return 1;
     }
 
