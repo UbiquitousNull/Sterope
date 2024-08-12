@@ -1,3 +1,9 @@
+/*
+ * 
+ *  This file is meant for management of program windows GLAD2 instance
+ *
+ */
+
 #include <stdio.h>
 
 #include <glad/gl.h>
