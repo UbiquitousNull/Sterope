@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef WINDOWSDL2_H
+#define WINDOWSDL2_H
 
     /*
      *
@@ -15,12 +15,11 @@
 #include "SDL.h"
 #include "SDL_video.h"
 
-void createMainWindow(const char* title, int winPosX, int winPosY, int winWidth, int winHeight, uint32_t winFlags);
 
-void initGLAD2(SDL_Window* window);
 
-void menuTest();
+SDL_Window* createMainWindow(const char* title, int winPosX, int winPosY, int winWidth, int winHeight, uint32_t winFlags);
 
-SDL_Window* testWindow();
+void destroySDL2Window(SDL_Window* window);
 
-#endif // MAIN_H
+
+#endif // WINDOWSDL2_H

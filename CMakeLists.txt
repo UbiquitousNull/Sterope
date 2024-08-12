@@ -10,15 +10,16 @@ project(SteropeLauncher)
 set(CMAKE_C_STANDARD 99)
 
 set(CORE_SOURCES
-    main/src/main.c
-    main/src/window.c
-    main/src/gl.c
+    main/src/main/main.c
+    main/src/main/windowSDL2.c
+    main/src/main/windowGl.c
+    main/src/etc/gl.c
 )
 
 set(CORE_INCLUDES
-    main/include/core/
-    main/include/SDL2/
-    main/include/GLAD2/
+    main/include/main/
+    main/include/etc/SDL2/
+    main/include/etc/GLAD2/
 )
 
 find_package(SDL2 REQUIRED)
@@ -29,7 +30,7 @@ else()
     message(FATAL_ERROR "SDL2 not found")
 endif()
 
-include_directories(main/include/GLAD2)
+include_directories(main/include/etc/GLAD2)
 #link_libraries(${GLAD2_LIBRARIES})
 
 add_executable(SteropeLauncher ${CORE_SOURCES})

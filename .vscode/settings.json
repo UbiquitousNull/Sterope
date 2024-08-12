@@ -19,6 +19,7 @@
         "typeinfo": "c",
         "khrplatform.h": "c",
         "gl.h": "c",
-        "stdint.h": "c"
+        "stdint.h": "c",
+        "utils.h": "c"
     }
 }
