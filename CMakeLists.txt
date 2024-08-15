@@ -33,7 +33,7 @@ endif()
 include_directories(main/include/etc/GLAD2)
 #link_libraries(${GLAD2_LIBRARIES})
 
-add_executable(SteropeLauncher ${CORE_SOURCES})
+add_executable(SteropeLauncher WIN32 ${CORE_SOURCES})
 
 target_link_libraries(SteropeLauncher ${GLAD2_LIBRARIES} SDL2::SDL2)
 

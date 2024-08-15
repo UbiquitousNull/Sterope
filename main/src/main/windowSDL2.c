@@ -13,30 +13,19 @@
 
 #include "windowSDL2.h"
 
-SDL_GLContext initGLAD2(SDL_Window* window)
-{
-    SDL_GLContext context = SDL_GL_CreateContext(window);
-    if (!context)
-    {
-        fprintf(stderr, "Failed to create OpenGL context: %s\n", SDL_GetError());
-        SDL_DestroyWindow(window);
-        SDL_Quit();
+SDL_Window* createMainWindow(const char* title, int winPosX, int winPosY, int winWidth, int winHeight, Uint32 winFlags)
+{    
+    SDL_Window* windowMain = SDL_CreateWindow(title, winPosX, winPosY, winWidth, winHeight, winFlags);
+
+    if (!windowMain) {
+        printf("Window creation error! SDL Error: %s\n", SDL_GetError());
         return NULL;
     }
 
-    if (!gladLoaderLoadGL())
-    {
-        fprintf(stderr, "Failed to initialize GLAD\n");
-        SDL_GL_DeleteContext(context);
-        SDL_DestroyWindow(window);
-        SDL_Quit();
-        return NULL;
-    }
-
-    return context;
+    return windowMain;
 }
 
-void destroyGLContext(SDL_GLContext context)
+void destroySDL2Window(SDL_Window* window)
 {
-    SDL_GL_DeleteContext(context);
+    SDL_DestroyWindow(window);
 }

@@ -19,7 +19,7 @@ SDL_GLContext initGLAD2(SDL_Window* window)
     if (!context)
     {
         fprintf(stderr, "Failed to create OpenGL context: %s\n", SDL_GetError());
-        SDL_DestroyWindow(window);
+        destroySDL2Window(window);
         SDL_Quit();
         return NULL;
     }
@@ -27,8 +27,8 @@ SDL_GLContext initGLAD2(SDL_Window* window)
     if (!gladLoaderLoadGL())
     {
         fprintf(stderr, "Failed to initialize GLAD\n");
-        SDL_GL_DeleteContext(context);
-        SDL_DestroyWindow(window);
+        destroyGLContext(context);
+        destroySDL2Window(window);
         SDL_Quit();
         return NULL;
     }
