@@ -74,4 +74,4 @@ CMakeUserPresets.json
 *.code-workspace
 
 # Build location
-build/*
+build/
