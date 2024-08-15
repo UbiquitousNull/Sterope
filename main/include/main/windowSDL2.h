@@ -15,11 +15,8 @@
 #include "SDL.h"
 #include "SDL_video.h"
 
-
-
-SDL_Window* createMainWindow(const char* title, int winPosX, int winPosY, int winWidth, int winHeight, uint32_t winFlags);
-
 void destroySDL2Window(SDL_Window* window);
 
+SDL_Window* createMainWindow(const char* title, int winPosX, int winPosY, int winWidth, int winHeight, uint32_t winFlags);
 
 #endif // WINDOWSDL2_H

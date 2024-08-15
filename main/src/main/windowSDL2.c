@@ -13,6 +13,11 @@
 
 #include "windowSDL2.h"
 
+void destroySDL2Window(SDL_Window* window)
+{
+    SDL_DestroyWindow(window);
+}
+
 SDL_Window* createMainWindow(const char* title, int winPosX, int winPosY, int winWidth, int winHeight, Uint32 winFlags)
 {    
     SDL_Window* windowMain = SDL_CreateWindow(title, winPosX, winPosY, winWidth, winHeight, winFlags);
@@ -23,9 +28,4 @@ SDL_Window* createMainWindow(const char* title, int winPosX, int winPosY, int wi
     }
 
     return windowMain;
-}
-
-void destroySDL2Window(SDL_Window* window)
-{
-    SDL_DestroyWindow(window);
 }

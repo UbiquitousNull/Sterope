@@ -14,8 +14,8 @@
 #include "SDL.h"
 #include "SDL_video.h"
 
-SDL_GLContext initGLAD2(SDL_Window* window);
-
 void destroyGLContext(SDL_GLContext context);
+
+SDL_GLContext initGLAD2(SDL_Window* window);
 
 #endif // WINDOWGL_H

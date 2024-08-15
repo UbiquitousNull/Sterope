@@ -13,10 +13,15 @@
 
 #include "windowSDL2.h"
 
+void destroyGLContext(SDL_GLContext context)
+{
+    SDL_GL_DeleteContext(context);
+}
+
 SDL_GLContext initGLAD2(SDL_Window* window)
 {
-    SDL_GLContext context = SDL_GL_CreateContext(window);
-    if (!context)
+    SDL_GLContext glContext = SDL_GL_CreateContext(window);
+    if (!glContext)
     {
         fprintf(stderr, "Failed to create OpenGL context: %s\n", SDL_GetError());
         destroySDL2Window(window);
@@ -27,16 +32,11 @@ SDL_GLContext initGLAD2(SDL_Window* window)
     if (!gladLoaderLoadGL())
     {
         fprintf(stderr, "Failed to initialize GLAD\n");
-        destroyGLContext(context);
+        destroyGLContext(glContext);
         destroySDL2Window(window);
         SDL_Quit();
         return NULL;
     }
 
-    return context;
-}
-
-void destroyGLContext(SDL_GLContext context)
-{
-    SDL_GL_DeleteContext(context);
+    return glContext;
 }
