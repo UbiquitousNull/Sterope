@@ -1,47 +1,254 @@
 # Planning Document
 
 <details style="margin-top:30px;">
-	<summary style="font-size:18px; font-weight:600;">Document outline</summary>
+	<summary style="font-size:18px; font-weight:600;">Document Outline</b></summary>
 
-### Inital Points
-1. **Project Title**
-2. Objective
-3. Scope
-### Requirements
-1. **Functional Requirements**
-2. Non-Functional Requirements
-3. System Requirements
-### System Architechture
-1. **High-Level Architecture Diagram**
-2. Components Overview
-3.
+1. **Introduction**
+   - Project Name
+   - Project Description
+
+2. **Objectives**
+   - Primary Objective
+   - Secondary Objective
+
+3. **Core Features**
+   - Game Engine Features
+   - Game Features
+
+4. **Technical Stack**
+   - Programming Language
+   - Libraries/Frameworks
+   - Build System
+
+5. **Architecture Overview**
+   - Engine Core
+   - Rendering Engine
+   - Input System
+   - Entity-Component System (ECS)
+
+6. **Project Scope**
+   - Game Engine
+   - Game
+
+7. **Development and Testing**
+   - Version Control
+   - Testing Strategy
+
+8. **Milestones**
+   - Milestone 1: Basic Engine Setup
+   - Milestone 2: Rendering Pipeline and Asset Management
+   - Milestone 3: Game Loop and Basic Gameplay
+   - Milestone 4: Complete Engine and Game
+   - Milestone 5: Final Testing and Documentation
+
+9. **Documentation**
+   - Code Documentation
+   - User Documentation
+   - Development Documentation
+
+10. **Future Work and Extensions**
+    - Advanced Rendering Features
+    - Physics Engine Integration
+    - Networking Capabilities
 
 </details>
 </br>
-<hr style="border-width:3px;">
+<hr><!-- <hr style="border-width:3px;"> -->
+</br>
+
+# Sterope Project Design Document
+
+## 1. Introduction
+<details open>
+<summary></summary>
+
+- **Project Name**: Sterope
+- **Project Description**: Development of a game engine and a basic game made in C, utilizing SDL2 for window management, input handling, and other multimedia functions, alongside GLAD2 for OpenGL 4.6 context and API management.
+</details>
 
 
-## Inital Points
+## 2. Objectives
+<details open>
+<summary></summary>
 
-- **Project Title:**
-[ Sterope ]
-
-- **Objective:**
-[ *T B A* ]
-- **Scope:**
-[ *T B A* ]
+- **Primary Objective**: Create a flexible, efficient game engine that serves as the foundation for developing 2D/3D games.
+- **Secondary Objective**: Develop a basic game demonstrating the engine’s capabilities.
+</details>
 
 
-## Requirements
+## 3. Core Features
+<details open>
+<summary></summary>
 
-- Functional Requirements
-	- 1
+- **Game Engine Features**:
+  - **Window and Context Management**: Utilize SDL2 for cross-platform window creation and event handling.
+  - **Rendering Pipeline**: Implement a basic OpenGL 4.6 rendering pipeline using GLAD2.
+  - **Input Handling**: Handle keyboard, mouse, and potentially gamepad input via SDL2.
+  - **Asset Management**: Basic asset loading and management system for textures, models, and other game assets.
+  - **Scene Management**: Implement a system for managing game objects, entities, and scenes.
 
-- Non-Functional Requirements
-	- 1
-- System Requirements
-	- 1
+- **Game Features**:
+  - **Game Loop**: A core game loop managing updates, rendering, and input handling.
+  - **Basic Gameplay Mechanics**: Simple gameplay showcasing the engine’s features (e.g., character movement, object interaction).
+  - **User Interface**: Simple UI elements like menus, health bars, and score displays.
+</details>
 
 
-## System Architechture
+## 4. Technical Stack
+<details open>
+<summary></summary>
 
+- **Programming Language**: C
+- **Libraries/Frameworks**:
+  - **SDL2**: For window creation, event handling, and basic 2D rendering.
+  - **GLAD2**: For managing OpenGL 4.6 function pointers.
+  - **OpenGL 4.6**: For rendering graphics (2D and possibly 3D).
+- **Build System**: CMake for project configuration and build automation.
+</details>
+
+
+## 5. Architecture Overview
+<details open>
+<summary></summary>
+
+- **Engine Core**:
+  - **Initialization/Shutdown Systems**: Managing SDL2 and OpenGL context creation and destruction.
+  - **Subsystem Management**: Organize and manage different subsystems (rendering, input, etc.).
+- **Rendering Engine**:
+  - **Shader Management**: Compile, link, and use GLSL shaders.
+  - **Rendering Pipeline**: Set up the basic rendering pipeline with vertex buffers, shaders, and draw calls.
+- **Input System**: Abstract SDL2 input handling for ease of use in the game logic.
+- **Entity-Component System (ECS)**: Potentially implement an ECS for flexible game object management.
+</details>
+
+
+## 6. Project Scope
+<details open>
+<summary></summary>
+
+- **Game Engine**:
+  - Core engine functionalities (rendering, input, asset management).
+  - Basic documentation and examples.
+- **Game**:
+  - A simple game utilizing the engine, including basic gameplay mechanics, UI, and assets.
+</details>
+
+
+## 7. Development and Testing
+<details open>
+<summary></summary>
+
+- **Version Control**: Git with a GitHub repository for code management.
+- **Testing Strategy**:
+  - Unit tests for critical engine components.
+  - Integration tests for subsystems interaction.
+  - Playtesting the game to ensure engine stability and gameplay functionality.
+</details>
+
+## 8. Milestones
+
+<details open>
+<summary><b>Milestone 1</b></summary>
+
+- **Create Basic Application:**
+    - Set up the project structure using CMake.
+    - Initialize an SDL2 window and OpenGL context using GLAD2.
+    - Create a basic application that opens a window and handles simple input (e.g., closing the window with the escape key).
+</details>
+</br>
+<details open>
+<summary><b>Milestone 2</b></summary>
+
+- <b>Implement Basic Rendering</b>:
+    - Set up a basic OpenGL 4.6 rendering pipeline.
+    - Render simple geometric shapes (e.g., a triangle) on the screen.
+    - Implement a basic shader management system.
+</details>
+</br>
+<details open>
+<summary><b>Milestone 3</b></summary>
+
+- <b>Add Input Handling and Game Loop</b>:
+    - Implement a robust game loop that handles updates, rendering, and input processing.
+    - Develop an input handling system abstracting SDL2 input methods.
+    - Test with simple interaction, such as moving a shape on the screen using keyboard input.
+</details>
+</br>
+<details open>
+<summary><b>Milestone 4</b></summary>
+
+- <b>Implement Profiles System</b>:
+    - Develop a system to save and load user profile preferences (e.g., settings like controls, graphics options, and saved games).
+    - Ensure profiles can be loaded at startup and modified in-game.
+    - Create a simple UI for managing user profiles.
+</details>
+</br>
+<details open>
+<summary><b>Milestone 5</b></summary>
+
+- <b>Integrate Asset Management</b>:
+    - Implement a basic asset management system for loading textures, models, and other game resources.
+    - Test by loading and rendering a simple textured object.
+</details>
+</br>
+<details open>
+<summary><b>Milestone 6</b></summary>
+
+- <b>Develop Scene and Entity Management</b>:
+    - Implement a scene management system to handle different game states or levels.
+    - Develop a basic entity-component system (ECS) or alternative structure to manage game objects.
+    - Create a simple scene with multiple objects and demonstrate interaction between them.
+</details>
+</br>
+<details open>
+<summary><b>Milestone 7</b></summary>
+
+- <b>Build a Simple Game</b>:
+    - Create a basic game using the engine, showcasing movement, interaction, and rendering capabilities.
+    - Include simple gameplay mechanics, such as player movement, collision detection, and scoring.
+</details>
+</br>
+<details open>
+<summary><b>Milestone 8</b></summary>
+
+- <b>Add User Interface Elements</b>:
+    - Implement basic UI components, such as menus, health bars, and score displays.
+    - Integrate these components into the game.
+</details>
+</br>
+<details open>
+<summary><b>Milestone 9</b></summary>
+
+- <b>Optimization and Refactoring</b>:
+    - Optimize the engine’s performance, focusing on rendering and input handling.
+    - Refactor the codebase for better modularity and maintainability.
+</details>
+</br>
+<details open>
+<summary><b>Milestone 10</b></summary>
+
+- <b>Final Testing and Documentation</b>:
+	- Conduct extensive testing to ensure stability and performance.
+    - Complete documentation for engine usage, including setup, core features, and code architecture.
+    - Prepare a final demo game that highlights the engine’s capabilities.
+</details>
+  
+
+## 9. Documentation
+<details open>
+<summary></summary>
+
+- **Code Documentation**: Inline comments, function headers.
+- **User Documentation**: How to use the engine, build the project, and understand the basic structure.
+- **Development Documentation**: Design decisions, architecture overview, and future work suggestions.
+</details>
+
+
+## 10. Future Work and Extensions
+<details open>
+<summary></summary>
+
+- **Advanced Rendering Features**: Shadows, reflections, and other graphical effects.
+- **Physics Engine Integration**: Consider integrating a physics engine like Box2D or Bullet (Currnetly just going to rely on my own).
+- **Networking Capabilities**: Add support for multiplayer features (local and/or online).
+</details>
