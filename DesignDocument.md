@@ -62,6 +62,8 @@
 
 # Sterope Project Design Document
 
+</br>
+
 ## 1. Introduction
 <details open>
 <summary>collapse/expand</summary>
@@ -71,6 +73,7 @@
 - **Project Description**: Development of a game engine and a basic game made in C, utilizing SDL2 for window management, input handling, and other multimedia functions, alongside GLAD2 for OpenGL 4.6 context and API management.
 </details>
 
+</br>
 
 ## 2. Objectives
 <details open>
@@ -81,6 +84,7 @@
 - **Secondary Objective**: Develop a basic game demonstrating the engine’s capabilities.
 </details>
 
+</br>
 
 ## 3. Core Features
 <details open>
@@ -100,6 +104,7 @@
   - **User Interface**: Simple UI elements like menus, health bars, and score displays.
 </details>
 
+</br>
 
 ## 4. Technical Stack
 <details open>
@@ -114,6 +119,7 @@
 - **Build System**: CMake for project configuration and build automation.
 </details>
 
+</br>
 
 ## 5. Architecture Overview
 <details open>
@@ -130,6 +136,7 @@
 - **Entity-Component System (ECS)**: Potentially implement an ECS for flexible game object management.
 </details>
 
+</br>
 
 ## 6. Project Scope
 <details open>
@@ -143,6 +150,7 @@
   - A simple game utilizing the engine, including basic gameplay mechanics, UI, and assets.
 </details>
 
+</br>
 
 ## 7. Development and Testing
 <details open>
@@ -156,8 +164,9 @@
   - Playtesting the game to ensure engine stability and gameplay functionality.
 </details>
 
-## 8. Milestones
+</br>
 
+## 8. Milestones
 <details open>
 <summary>collapse/expand</summary>
 </br>
@@ -248,6 +257,8 @@
 </details>
 </details>
 
+</br>
+
 ## 9. Documentation
 <details open>
 <summary>collapse/expand</summary>
@@ -258,6 +269,7 @@
 - **Development Documentation**: Design decisions, architecture overview, and future work suggestions.
 </details>
 
+</br>
 
 ## 10. Future Work and Extensions
 <details open>
