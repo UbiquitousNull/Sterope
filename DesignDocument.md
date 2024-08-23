@@ -3,27 +3,58 @@
 <details style="margin-top:30px;">
 	<summary style="font-size:18px; font-weight:600;">Document Outline</b></summary>
 
-1. [Introduction](#introduction)
-2. [Objectives](#objectives)
-3. [Core Features](#core-features)
-4. [Technical Stack](#technical-stack)
-5. [Architecture Overview](#architecture-overview)
-6. [Project Scope](#project-scope)
-7. [Development and Testing](#development-and-testing)
-8. [Milestones](#milestones)
-   - [Milestone 1: Create Basic Application](#milestone-1-create-basic-application)
-   - [Milestone 2: Implement Basic Rendering](#milestone-2-implement-basic-rendering)
-   - [Milestone 3: Add Input Handling and Game Loop](#milestone-3-add-input-handling-and-game-loop)
-   - [Milestone 4: Implement Profile System](#milestone-4-implement-profile-system)
-   - [Milestone 5: Integrate Asset Management](#milestone-5-integrate-asset-management)
-   - [Milestone 6: Develop Scene and Entity Management](#milestone-6-develop-scene-and-entity-management)
-   - [Milestone 7: Build a Simple Game](#milestone-7-build-a-simple-game)
-   - [Milestone 8: Add User Interface Elements](#milestone-8-add-user-interface-elements)
-   - [Milestone 9: Optimization and Refactoring](#milestone-9-optimization-and-refactoring)
-   - [Milestone 10: Final Testing and Documentation](#milestone-10-final-testing-and-documentation)
-9. [Documentation](#documentation)
-10. [Future Work and Extensions](#future-work-and-extensions)
+1. **Introduction**
+   - Project Name
+   - Project Description
 
+2. **Objectives**
+   - Primary Objective
+   - Secondary Objective
+
+3. **Core Features**
+   - Game Engine Features
+   - Game Features
+
+4. **Technical Stack**
+   - Programming Language
+   - Libraries/Frameworks
+   - Build System
+
+5. **Architecture Overview**
+   - Engine Core
+   - Rendering Engine
+   - Input System
+   - Entity-Component System (ECS)
+
+6. **Project Scope**
+   - Game Engine
+   - Game
+
+7. **Development and Testing**
+   - Version Control
+   - Testing Strategy
+
+8. **Milestones**
+   - Milestone 1: Create Basic Application
+   - Milestone 2: Implement Basic Rendering
+   - Milestone 3: Add Input Handling and Game Loop
+   - Milestone 4: Implement Profiles System
+   - Milestone 5: Integrate Asset Management
+   - Milestone 6: Develop Scene and Entity Management
+   - Milestone 7: Build a Simple Game
+   - Milestone 8: Add User Interface Elements
+   - Milestone 9: Optimization and Refactoring
+   - Milestone 10: Final Testing and Documentation
+
+9. **Documentation**
+   - Code Documentation
+   - User Documentation
+   - Development Documentation
+
+10. **Future Work and Extensions**
+    - Advanced Rendering Features
+    - Physics Engine Integration
+    - Networking Capabilities
 </details>
 </br>
 <hr><!-- <hr style="border-width:3px;"> -->
