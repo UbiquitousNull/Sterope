@@ -3,38 +3,38 @@
 <details style="margin-top:30px;">
 	<summary style="font-size:18px; font-weight:600;">Document Outline</b></summary>
 
-1. **Introduction**
+1. <a href="#1-introduction">**Introduction**</a>
    - Project Name
    - Project Description
 
-2. **Objectives**
+2. <a href="#2-objectives">**Objectives**</a>
    - Primary Objective
    - Secondary Objective
 
-3. **Core Features**
+3. <a href="#3-core-features">**Core Features**</a>
    - Game Engine Features
    - Game Features
 
-4. **Technical Stack**
+4. <a href="#4-technical-stack">**Technical Stack**</a>
    - Programming Language
    - Libraries/Frameworks
    - Build System
 
-5. **Architecture Overview**
+5. <a href="#5-architecture-overview">**Architecture Overview**</a>
    - Engine Core
    - Rendering Engine
    - Input System
    - Entity-Component System (ECS)
 
-6. **Project Scope**
+6. <a href="#6-project-scope">**Project Scope**</a>
    - Game Engine
    - Game
 
-7. **Development and Testing**
+7. <a href="#7-development-and-testing">**Development and Testing**</a>
    - Version Control
    - Testing Strategy
 
-8. **Milestones**
+8. <a href="#8-milestones">**Milestones**</a>
    - Milestone 1: Create Basic Application
    - Milestone 2: Implement Basic Rendering
    - Milestone 3: Add Input Handling and Game Loop
@@ -46,12 +46,12 @@
    - Milestone 9: Optimization and Refactoring
    - Milestone 10: Final Testing and Documentation
 
-9. **Documentation**
+9. <a href="#9-documentation">**Documentation**</a>
    - Code Documentation
    - User Documentation
    - Development Documentation
 
-10. **Future Work and Extensions**
+10. <a href="#10-future-work-and-extensions">**Future Work and Extensions**</a>
     - Advanced Rendering Features
     - Physics Engine Integration
     - Networking Capabilities
