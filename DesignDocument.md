@@ -60,7 +60,8 @@
 
 ## 1. Introduction
 <details open>
-<summary></summary>
+<summary>collapse/expand</summary>
+</br>
 
 - **Project Name**: Sterope
 - **Project Description**: Development of a game engine and a basic game made in C, utilizing SDL2 for window management, input handling, and other multimedia functions, alongside GLAD2 for OpenGL 4.6 context and API management.
@@ -69,7 +70,8 @@
 
 ## 2. Objectives
 <details open>
-<summary></summary>
+<summary>collapse/expand</summary>
+</br>
 
 - **Primary Objective**: Create a flexible, efficient game engine that serves as the foundation for developing 2D/3D games.
 - **Secondary Objective**: Develop a basic game demonstrating the engine’s capabilities.
@@ -78,7 +80,8 @@
 
 ## 3. Core Features
 <details open>
-<summary></summary>
+<summary>collapse/expand</summary>
+</br>
 
 - **Game Engine Features**:
   - **Window and Context Management**: Utilize SDL2 for cross-platform window creation and event handling.
@@ -96,7 +99,8 @@
 
 ## 4. Technical Stack
 <details open>
-<summary></summary>
+<summary>collapse/expand</summary>
+</br>
 
 - **Programming Language**: C
 - **Libraries/Frameworks**:
@@ -109,7 +113,8 @@
 
 ## 5. Architecture Overview
 <details open>
-<summary></summary>
+<summary>collapse/expand</summary>
+</br>
 
 - **Engine Core**:
   - **Initialization/Shutdown Systems**: Managing SDL2 and OpenGL context creation and destruction.
@@ -124,7 +129,8 @@
 
 ## 6. Project Scope
 <details open>
-<summary></summary>
+<summary>collapse/expand</summary>
+</br>
 
 - **Game Engine**:
   - Core engine functionalities (rendering, input, asset management).
@@ -136,7 +142,8 @@
 
 ## 7. Development and Testing
 <details open>
-<summary></summary>
+<summary>collapse/expand</summary>
+</br>
 
 - **Version Control**: Git with a GitHub repository for code management.
 - **Testing Strategy**:
@@ -147,6 +154,9 @@
 
 ## 8. Milestones
 
+<details open>
+<summary>collapse/expand</summary>
+</br>
 <details open>
 <summary><b>Milestone 1</b></summary>
 
@@ -232,11 +242,12 @@
     - Complete documentation for engine usage, including setup, core features, and code architecture.
     - Prepare a final demo game that highlights the engine’s capabilities.
 </details>
-  
+</details>
 
 ## 9. Documentation
 <details open>
-<summary></summary>
+<summary>collapse/expand</summary>
+</br>
 
 - **Code Documentation**: Inline comments, function headers.
 - **User Documentation**: How to use the engine, build the project, and understand the basic structure.
@@ -246,7 +257,8 @@
 
 ## 10. Future Work and Extensions
 <details open>
-<summary></summary>
+<summary>collapse/expand</summary>
+</br>
 
 - **Advanced Rendering Features**: Shadows, reflections, and other graphical effects.
 - **Physics Engine Integration**: Consider integrating a physics engine like Box2D or Bullet (Currnetly just going to rely on my own).
