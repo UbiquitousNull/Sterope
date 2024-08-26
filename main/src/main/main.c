@@ -73,11 +73,13 @@ int main(int argc, char *argv[])
 
     int running = 1;
 
+    parse_ini_file("controls.ini", &controls_k, &controls_m);
+
     while (running)
     {
         SDL_Event event;
 
-        parse_ini_file("controls.ini", &controls_k, &controls_m);
+        
 
         while (SDL_PollEvent(&event))
         {
@@ -85,7 +87,7 @@ int main(int argc, char *argv[])
             
             if (event.key.keysym == SDLK_ESCAPE)
             {
-                // Handle escape press before control.ini
+                // Handle escape
             }
         }
     }
