@@ -3,6 +3,14 @@
 #include "input.h"
 #include "main.h"
 
+
+/******************************************************************************************************************************************************************************/
+/*
+/*  Temprary file for `.ini` parsing *NOT FINAL*
+/*
+/******************************************************************************************************************************************************************************/ 
+
+
 void parse_controls_k(char *key, char *value, ControlsK *controls_k) {
     if (strcmp(key, "build_menu") == 0) controls_k->build_menu = SDL_GetKeyFromName(value);
     else if (strcmp(key, "crouch") == 0) controls_k->crouch = SDL_GetKeyFromName(value);
