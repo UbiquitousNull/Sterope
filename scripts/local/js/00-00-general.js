@@ -1,4 +1,4 @@
 
-function hMenuToggle() {
-    document.getElementById("menu").classList.toggle("active");
+function toggleActive() {
+    document.getElementById("toggleA").classList.toggle("active");
 }

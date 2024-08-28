@@ -16,7 +16,7 @@ html {
     position: fixed;      
     top: 0;               
     left: 50%;            
-    transform: translateX(-50%);  
+    transform: right;  
     width: 100%;          
     max-width: 800px;     
     margin: 0 auto;       
