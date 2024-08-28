@@ -13,15 +13,13 @@ html {
 #menu.active {
     height: auto; 
     overflow: visible;
-    position: fixed;      
-    top: 0;               
-    left: 50%;            
-    transform: right;  
-    width: 100%;          
-    max-width: 800px;     
-    margin: 0 auto;       
-    background-color: rgba(57, 81, 104, 0.712); 
-    padding: 10px;        
-    z-index: 1000;        
-    text-align: center;  
+    position: fixed;   
+    top: 0;          
+    right: 0;        
+    z-index: 1000;   
+    width: 200px;    
+    height: 100px;   
+    background-color: rgba(47, 40, 83, 0.589); 
+    padding: 10px;   
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
