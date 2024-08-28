@@ -1,6 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("hMenu").addEventListener("click", function() {
-        var textElement = document.getElementById("menu");
-        textElement.classList.toggle("active");
-    });
-});
+
+function hMenuToggle() {
+    document.getElementById("menu").classList.toggle("active");
+}
