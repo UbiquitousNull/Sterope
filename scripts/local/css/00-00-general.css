@@ -1,0 +1,11 @@
+#menuClosed {
+    display: flex;
+}
+#menuOpen {
+    display: block;
+}
+
+.menu {
+    display: none;
+    flex-direction: column;
+}
