@@ -1,13 +1,11 @@
-function toggleMenu()
-{
-	let status = document.getElementById("menuClosed").innerHTML;
-	switch(status)
-	{
-		case "menuClosed":
-			status = "menuOpen";
-			break;
-		default:
-			status = "menuClosed";
-	}
-	document.getElementById("menuClosed").innerHTML = status;
+function toggleMenu() {
+    let menuElement = document.getElementById("menu");
+    
+    switch(status) {
+        case "menuClosed":
+            menuElement.classList.add("active");
+            break;
+        default:
+            menuElement.classList.remove("active");
+    }
 }

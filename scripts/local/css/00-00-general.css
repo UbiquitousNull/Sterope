@@ -1,11 +1,69 @@
-#menuClosed {
-    display: flex;
-}
-#menuOpen {
-    display: block;
+
+html {
+	margin: 0;
+	border: 0;
+	padding: 0;
 }
 
-.menu {
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+}
+
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
     display: none;
-    flex-direction: column;
+    color: white;
+}
+
+/* Menu Styles */
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.menu li a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
 }
