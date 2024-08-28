@@ -4,6 +4,6 @@ function cLog(...a) {
 
 
 function toggleActive(elementId) {
-    cLog("%s : ToggleID", elementId);
+    cLog("ToggleID: %s", elementId);
     document.getElementById(elementId).classList.toggle("active");
 }
