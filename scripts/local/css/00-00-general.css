@@ -4,8 +4,22 @@ html {
 	padding: 0;
 }
 
+nav {
+    position: fixed;      
+    top: 0;               
+    left: 50%;            
+    transform: translateX(-50%);  
+    width: 100%;          
+    max-width: 800px;     
+    margin: 0 auto;       
+    background-color: rgba(57, 81, 104, 0.712); 
+    padding: 10px;        
+    z-index: 1000;        
+    text-align: center;   
+}
+
 .menu-icon {
-    color:rgb(255, 0, 0);
+    color:rgb(0, 0, 0);
 }
 
 #menu {
@@ -15,6 +29,6 @@ html {
 }
 
 #menu.active {
-    height: auto; /* Allows the menu to expand to its full height */
+    height: auto; 
     overflow: visible;
 }
