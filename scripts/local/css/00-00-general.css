@@ -4,7 +4,15 @@ html {
 	padding: 0;
 }
 
-nav {
+#menu {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+#menu.active {
+    height: auto; 
+    overflow: visible;
     position: fixed;      
     top: 0;               
     left: 50%;            
@@ -15,16 +23,5 @@ nav {
     background-color: rgba(57, 81, 104, 0.712); 
     padding: 10px;        
     z-index: 1000;        
-    text-align: center;   
-}
-
-#menu {
-    height: 0;
-    overflow: hidden;
-    transition: height 0.3s ease;
-}
-
-#menu.active {
-    height: auto; 
-    overflow: visible;
+    text-align: center;  
 }
