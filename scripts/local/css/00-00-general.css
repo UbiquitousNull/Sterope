@@ -4,16 +4,17 @@ html {
 	padding: 0;
 }
 
+.menu-icon {
+    color:rgb(255, 0, 0);
+}
+
 #menu {
-    font-size: 0;
-    line-height: 0;
-    padding: 0;
-    margin: 0;
-    visibility: hidden; 
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
 }
 
 #menu.active {
-    font-size: 16px; 
-    line-height: normal; 
-    visibility: visible; 
+    height: auto; /* Allows the menu to expand to its full height */
+    overflow: visible;
 }
