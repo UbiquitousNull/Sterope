@@ -4,13 +4,13 @@ html {
 	padding: 0;
 }
 
-#menu {
+.menu {
     height: 0;
     overflow: hidden;
     transition: height 0.3s ease;
 }
 
-#menu.active {
+.menu.active {
     height: auto; 
     overflow: visible;
     position: fixed;   
