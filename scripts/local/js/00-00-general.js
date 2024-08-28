@@ -1,11 +1,10 @@
 function toggleMenu() {
-    let menuElement = document.getElementById("menu");
-    
-    switch(status) {
-        case "menuClosed":
-            menuElement.classList.add("active");
+    let menu = document.getElementById("menu");
+    switch(menu.classList.contains("active")) {
+        case true:
+            menu.classList.remove("active");
             break;
         default:
-            menuElement.classList.remove("active");
+            menu.classList.add("active");
     }
 }
