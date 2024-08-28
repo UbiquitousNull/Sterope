@@ -18,10 +18,6 @@ nav {
     text-align: center;   
 }
 
-.menu-icon {
-    color:rgb(0, 0, 0);
-}
-
 #menu {
     height: 0;
     overflow: hidden;
