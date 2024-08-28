@@ -22,6 +22,7 @@ header {
     cursor: pointer;
     display: none;
     color: white;
+    border: none;
 }
 
 /* Menu Styles */
