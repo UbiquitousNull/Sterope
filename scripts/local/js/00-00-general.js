@@ -1,4 +1,4 @@
 
-function toggleActive() {
-    document.getElementById("toggleA").classList.toggle("active");
+function toggleActive(elementId) {
+    document.getElementById(elementId).classList.toggle("active");
 }
