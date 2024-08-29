@@ -5,7 +5,7 @@ import {
     error, 
     debug, 
     cLog 
-} from './00-00-logging.js';
+} from './logging';
 
 function toggleActive(elementId) {
     try {
