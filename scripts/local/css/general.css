@@ -4,6 +4,24 @@ html {
     padding: 0;
 }
 
+#navMain {
+    height: 10%;
+}
+
+#navLeft {
+    float: left;    
+    width: 20%;
+}
+
+#navMid {
+    width: auto;
+}
+
+#navRight {
+    float: right;
+    width: 20%
+}
+
 .menuIcon {
     right: 0;
 }

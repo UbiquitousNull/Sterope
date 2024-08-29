@@ -1,0 +1,15 @@
+#navLeft {
+    background-color: rgb(202, 0, 0);
+}
+
+#navMid {
+    background-color: rgb(0, 204, 52);
+}
+
+#navRight {
+    background-color: rgb(0, 0, 203);
+}
+
+#navLeft p, #navMid p, #navRight p {
+    align-content: center; 
+}
