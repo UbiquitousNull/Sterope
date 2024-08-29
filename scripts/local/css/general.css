@@ -41,6 +41,10 @@
     size: initial;
 }
 
+.menu ul li {
+    display: inline;
+}
+
 .menu {
     height: 0;
     width: 0;
