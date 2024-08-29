@@ -21,20 +21,14 @@
 
 #navLeft {
     flex-grow: 1;
-    width: 20%;
-    height: inherit;
 }
 
 #navMid {
     flex-grow: 2;
-    width: auto;
-    height: inherit;
 }
 
 #navRight {
     flex-grow: 1;
-    width: 20%;
-    height: inherit;
 }
 
 .menuIcon {
