@@ -16,3 +16,7 @@ function toggleActive(elementId) {
 
     } catch (err) { cLog(error, `Error toggling active class on element with ID: ${elementId}`, err.message); }
 }
+
+document.getElementById('tButton').addEventListener('click', () => {
+    toggleActive('toggleA');
+});
