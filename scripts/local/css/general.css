@@ -8,6 +8,10 @@
     padding: 0;
 }
 
+.nav {
+    position: fixed;
+}
+
 #navMain {
     height: 10%;
 }
