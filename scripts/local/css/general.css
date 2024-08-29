@@ -39,6 +39,8 @@
 
 .menuIcon {
     right: 0;
+    max-width: max-content;
+    max-height: max-content;
 }
 
 .menu {
@@ -51,7 +53,7 @@
     padding: 10px;
     opacity: 0;
     transition: height 0.3s ease, opacity 0.3s ease, width 0.3s ease;
-    
+    cursor: pointer;
 }
 
 .menu.active {
