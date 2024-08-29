@@ -10,7 +10,7 @@ html {
     overflow: hidden;
     position: fixed;
     top: 0;
-    right: 0;
+    right: 100;
     padding: 10px;
     opacity: 0;
     transition: height 0.3s ease, opacity 0.3s ease, width 0.3s ease;
