@@ -13,22 +13,26 @@
 }
 
 #navMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 10%;
 }
 
 #navLeft {
-    float: left;    
+    flex-grow: 1;
     width: 20%;
     height: inherit;
 }
 
 #navMid {
+    flex-grow: 1;
     width: auto;
     height: inherit;
 }
 
 #navRight {
-    float: right;
+    flex-grow: 1;
     width: 20%;
     height: inherit;
 }
