@@ -10,7 +10,6 @@ html {
     position: fixed;
     top: 0;
     right: 0;
-    width: 200px;
     padding: 10px;
     opacity: 0;
     transition: height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
@@ -18,6 +17,7 @@ html {
 
 .menu.active {
     height: 100px;
+    width: 200px;
     overflow: visible;
     opacity: 1;
     background-color: rgba(47, 40, 83, 0.589);
