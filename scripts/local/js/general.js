@@ -14,6 +14,8 @@ function toggleActive(elementId) {
 
         const result = element.classList.toggle("active");
         cLog(log, `The active class was ${result ? "added to" : "removed from"} element with ID: ${elementId}`);
+        result = element.style.transform = "translateX(-100vw)";
+        cLog(log, `The ${element} element was ${result ? "added to" : "removed from"} element with ID: ${elementId}`);
 
     } catch (err) { cLog(error, `Error toggling active class on element with ID: ${elementId}`, err.message); }
 }
