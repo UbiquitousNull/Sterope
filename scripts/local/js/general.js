@@ -13,7 +13,7 @@ function toggleActive(elementId) {
         if (!element) { throw new Error(`Element with ID "${elementId}" not found.`); }
 
         const result = element.classList.toggle("active");
-        cLog(log, `The active class was ${result ? "added to" : "removed from"} element with ID: ${elementId}`);
+        // cLog(log, `The active class was ${result ? "added to" : "removed from"} element with ID: ${elementId}`);
         result ? (element.style.transform = "translateX(100vw)") : (element.style.transform = "translateX(-100vw)");
 
     } catch (err) { cLog(error, `Error toggling active class on element with ID: ${elementId}`, err.message); }

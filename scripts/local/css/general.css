@@ -30,11 +30,11 @@
     width: 20%;
 }
 
-/* .menuIcon {
-    right: 0;
+.menuIcon {
+    float: right;
 }
 
-.menu ul li {
+/* .menu ul li {
     display: inline;
 } */
 
