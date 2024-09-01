@@ -6,6 +6,7 @@ import {
     debug, 
     cLog 
 } from './logging.js';
+window.cLog = cLog;
 
 function toggleActive(elementId) {
     try {
