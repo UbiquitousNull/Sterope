@@ -57,6 +57,7 @@
 .menu.active {
     top: 0; 
     right: 0;
+    width:fit-content;
     visibility: visible; 
     pointer-events: auto; 
     transform: translateY(0); 
