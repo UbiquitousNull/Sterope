@@ -13,6 +13,8 @@ set(CORE_SOURCES
     main/src/main/main.c
     main/src/main/windowSDL2.c
     main/src/main/windowGl.c
+    main/src/main/io.c
+    main/src/main/Loggging.c
     main/src/etc/gl.c
 )
 
