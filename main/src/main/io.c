@@ -152,5 +152,5 @@ void dirCrawl(const char* path)
  *															*
  ***********************************************************/
 #else
-#error "Unsupported platform: Ask github.com/UbiquitousNull for assistance and/or forgiveness."
+#error "io | Unsupported platform: Ask UbiquitousNull for assistance and/or forgiveness."
 #endif
