@@ -33,22 +33,23 @@ char generateFilename(char *filename)
     return genFilename
 }
 
-char createTimeStampFile(const char *filename)
+char createFile(const char *filename)
 {
     FILE *openFile;
-    char *genFilename;
 
-    genFilename = generateFilename(filename);
-
-    if (fopen(genFilename, "r"))
+    if (fopen(filename, "r"))
     {
-        fclose(genFilename);
-        return;
+        fclose(filename);
+        return NULL;
     }
 
-    fopen(genFilename, "a");
+    openFile = fopen(filename, "a");
 
-    
+    if (!openFile) {
+        #error "io.c | System could not create file." 
+    }
+
+    return openFile;
 }
 
 
@@ -152,5 +153,5 @@ void dirCrawl(const char* path)
  *															*
  ***********************************************************/
 #else
-#error "io | Unsupported platform: Ask UbiquitousNull for assistance and/or forgiveness."
+#error "io.c | Unsupported platform: Ask UbiquitousNull for assistance and/or forgiveness."
 #endif
