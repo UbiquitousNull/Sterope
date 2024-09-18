@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <errno.h>
+#include <SDL.h>
 #include "utils.h"
 
 
@@ -33,7 +34,7 @@ char generateFilename(char *filename)
     return genFilename
 }
 
-char createFile(const char *filename)
+char createFile(const char* filename)
 {
     FILE *openFile;
 
@@ -46,7 +47,7 @@ char createFile(const char *filename)
     openFile = fopen(filename, "a");
 
     if (!openFile) {
-        #error "io.c | System could not create file." 
+        // To implement | log "Error, io.c System could not create file." 
     }
 
     return openFile;
@@ -69,36 +70,43 @@ char createFile(const char *filename)
 #define snprintf _snprintf
 #include <windows.h>
 
-void dirCrawl(const char* path)
+char* dirCrawl(const char* path)
 {
     WIN32_FIND_DATA findFileData;
     HANDLE hFind = INVALID_HANDLE_VALUE;
     char dirPath[MAX_PATH];
     char fullPath[MAX_PATH];
 
-    snprintf(dirPath, MAX_PATH, "%s\\*", path);
+    if (snprintf(dirPath, MAX_PATH, "%s\\*", path) >= MAX_PATH) {
+        // To implement | log "Error, Path too long: path);
+        return;
+    }
 
     hFind = FindFirstFile(dirPath, &findFileData);
-    if (hFind == INVALID_HANDLE_VALUE)
-	{
-        printf("FindFirstFile error: %d\n", GetLastError());
+    if (hFind == INVALID_HANDLE_VALUE) {
+        // To implement | log "Error, FindFirstFile error: GetLastError()"
         return;
     }
 
     do {
-        if (strcmp(findFileData.cFileName, ".") != 0 && strcmp(findFileData.cFileName, "..") != 0)
-		{
-            snprintf(fullPath, MAX_PATH, "%s\\%s", path, findFileData.cFileName);
-            if (findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
-			{
-                printf("Directory: %s\n", fullPath);
-                dirCrawl(fullPath);
-            } else
-			{
-                printf("File: %s\n", fullPath);
-            }
-        }
-    } while (FindNextFile(hFind, &findFileData) != 0);
+        if (strcmp(findFileData.cFileName, ".") == 0 || strcmp(findFileData.cFileName, "..") == 0) { continue; }
+		if (snprintf(fullPath, MAX_PATH, "%s\\%s", path, findFileData.cFileName) >= MAX_PATH) {
+			// To implement | log "Full path too long: path, findFileData.cFileName"
+			continue;
+		}
+
+		if (findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
+			printf("Directory: %s\n", fullPath);
+			dirCrawl(fullPath);
+		} else {
+			// To implement | log "File: fullPath"
+			return fullPath
+		}
+    } while (FindNextFile(hFind, &findFileData));
+
+    if (GetLastError() != ERROR_NO_MORE_FILES) {
+        // To implement | log "Error, FindNextFile error: GetLastError();"
+    }
 
     FindClose(hFind);
 }
@@ -109,40 +117,51 @@ void dirCrawl(const char* path)
  *  														*
  ***********************************************************/
 #elif __unix__ || __APPLE__
+#include <sys/stat.h>
 #include <dirent.h>
+#include <limits.h>
 
-void dirCrawl(const char* path)
+char* dirCrawl(const char* path)
 {
     struct dirent* entry;
     DIR* dir = opendir(path);
 
     if (dir == NULL) {
-        printf("opendir error: %s\n", strerror(errno));
+        perror("opendir error");
         return;
     }
 
     while ((entry = readdir(dir)) != NULL) {
-        // Skip "." and ".."
-        if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
-            char fullPath[1024];
-            snprintf(fullPath, sizeof(fullPath), "%s/%s", path, entry->d_name);
+		char fullPath[PATH_MAX];
 
-            struct stat statbuf;
-            if (stat(fullPath, &statbuf) == 0) {
-                if (S_ISDIR(statbuf.st_mode)) {
-                    printf("Directory: %s\n", fullPath);
-                    // Recursively crawl subdirectories
-                    dirCrawl(fullPath);
-                } else {
-                    printf("File: %s\n", fullPath);
-                }
-            } else {
-                printf("stat error: %s\n", strerror(errno));
-            }
-        }
+        // Skip "." and ".."
+        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) { continue; }
+        
+		if (snprintf(fullPath, sizeof(fullPath), "%s/%s", path, entry->d_name) >= sizeof(fullPath)) {
+			// To implement | log "Error, Path too long: path, entry->d_name"
+			continue;
+		}
+				
+		struct stat statbuf;
+		if (stat(fullPath, &statbuf) != 0) {
+			// To implement | log "Error, stat error for fullPath, strerror(errno)"
+			continue;
+		}
+
+		if (S_ISDIR(statbuf.st_mode)) {
+			// To implement | log "Directory: fullPath"
+			// Recursively crawl subdirectories
+			dirCrawl(fullPath);
+		} else {
+			
+		}
+		
+		
     }
 
-    closedir(dir);
+    if (closedir(dir) == -1) {
+        // To implement | log "closedir error"
+    }
 }
 
 /**[Other]***************************************************

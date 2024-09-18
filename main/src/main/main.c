@@ -29,7 +29,7 @@ SDL_Window* testWindow()
     int winPosY = SDL_WINDOWPOS_CENTERED;
     int winWidth = 960;
     int winHeight = 540;
-    Uint32 winIntFlags = SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL;
+    Uint32 winIntFlags = SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZEABLE;
 
     SDL_GLContext context;
     SDL_Window* window = createMainWindow(title, winPosX, winPosY, winWidth, winHeight, winIntFlags);

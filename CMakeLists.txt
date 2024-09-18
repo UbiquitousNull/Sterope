@@ -1,4 +1,5 @@
-#   This file is for building the program into a .exe
+# # # # # # # # # # # # # # # # # # # # # # #
+#   This file is for building the program
 #
 #   DO NOT DELETE!
 #
@@ -11,33 +12,33 @@ set(CMAKE_C_STANDARD 99)
 
 set(CORE_SOURCES
     main/src/main/main.c
-    main/src/main/windowSDL2.c
-    main/src/main/windowGl.c
+    main/src/main/SDL.c
+    main/src/main/GL.c
     main/src/main/eventSys.c
     main/src/main/io.c
     main/src/main/logging.c
-    main/src/etc/gl.c
+    main/src/etc/GLAD/gl.c
 )
 
 set(CORE_INCLUDES
     main/include/main/
-    main/include/etc/SDL2/
-    main/include/etc/GLAD2/
+    main/include/etc/SDL/
+    main/include/etc/GLAD/
 )
 
-find_package(SDL2 REQUIRED)
-if (SDL2_FOUND)
-    include_directories(${SDL2_INCLUDE_DIRS})
-    link_libraries(${SDL2_LIBRARIES})
+find_package(SDL3 REQUIRED)
+if (SDL3_FOUND)
+    include_directories(${SDL_INCLUDE_DIRS})
+    link_libraries(${SDL_LIBRARIES})
 else()
-    message(FATAL_ERROR "SDL2 not found")
+    message(FATAL_ERROR "SDL not found")
 endif()
 
-include_directories(main/include/etc/GLAD2)
-#link_libraries(${GLAD2_LIBRARIES})
+include_directories(main/include/etc/GLAD)
+#link_libraries(${GLAD_LIBRARIES})
 
 add_executable(SteropeLauncher WIN32 ${CORE_SOURCES})
 
-target_link_libraries(SteropeLauncher ${GLAD2_LIBRARIES} SDL2::SDL2)
+target_link_libraries(SteropeLauncher ${GLAD_LIBRARIES} SDL3::SDL3)
 
 target_include_directories(SteropeLauncher PRIVATE ${CORE_INCLUDES})

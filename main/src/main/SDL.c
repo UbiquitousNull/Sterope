@@ -13,6 +13,11 @@
 
 #include "windowSDL2.h"
 
+int initialiseSDL()
+{
+    
+}
+
 void destroySDL2Window(SDL_Window* window)
 {
     SDL_DestroyWindow(window);
