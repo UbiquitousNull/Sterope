@@ -20,6 +20,8 @@
         "khrplatform.h": "c",
         "gl.h": "c",
         "stdint.h": "c",
-        "utils.h": "c"
-    }
+        "utils.h": "c",
+        "*.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "enabled"
 }

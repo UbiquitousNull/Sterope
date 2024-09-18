@@ -31,7 +31,7 @@ char generateFilename(char *filename)
 
     sprintf(filename, "%s_%s", timestamp, genFilename);
 
-    return genFilename
+    return genFilename;
 }
 
 char createFile(const char* filename)
@@ -100,7 +100,7 @@ char* dirCrawl(const char* path)
 			dirCrawl(fullPath);
 		} else {
 			// To implement | log "File: fullPath"
-			return fullPath
+			return fullPath;
 		}
     } while (FindNextFile(hFind, &findFileData));
 

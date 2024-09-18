@@ -26,8 +26,8 @@ set(CORE_INCLUDES
     main/include/etc/GLAD/
 )
 
-find_package(SDL3 REQUIRED)
-if (SDL3_FOUND)
+find_package(SDL2 REQUIRED)
+if (SDL2_FOUND)
     include_directories(${SDL_INCLUDE_DIRS})
     link_libraries(${SDL_LIBRARIES})
 else()
@@ -39,6 +39,6 @@ include_directories(main/include/etc/GLAD)
 
 add_executable(SteropeLauncher WIN32 ${CORE_SOURCES})
 
-target_link_libraries(SteropeLauncher ${GLAD_LIBRARIES} SDL3::SDL3)
+target_link_libraries(SteropeLauncher ${GLAD_LIBRARIES} SDL2::SDL2)
 
 target_include_directories(SteropeLauncher PRIVATE ${CORE_INCLUDES})
