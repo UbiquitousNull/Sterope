@@ -3,6 +3,6 @@
 
 
 char createFile(const char *filename);
-void dirCrawl(const char* path);
+char* dirCrawl(const char* path);
 
 #endif // IO_H

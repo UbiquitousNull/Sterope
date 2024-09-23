@@ -7,9 +7,6 @@
 #define MAX_KEY 50
 #define MAX_VALUE 50
 
-ControlsK controls_k = {0};
-ControlsM controls_m = {0};
-
 #include "main.h"
 
 typedef struct {
@@ -31,6 +28,9 @@ typedef struct {
     Uint8 click_secondary;
     SDL_MouseWheelDirection scroll_orientation;
 } ControlsM;
+
+ControlsK controls_k = {0};
+ControlsM controls_m = {0};
 
 void parse_ini_file(const char *filename, ControlsK *controls_k, ControlsM *controls_m);
 
