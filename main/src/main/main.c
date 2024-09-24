@@ -14,6 +14,7 @@
 #include <KHR/khrplatform.h>
 #include "SDL.h"
 #include "SDL_video.h"
+#include "SDL_keyboard.h"
 
 void shutdownMain(SDL_GLContext context, SDL_Window* window)
 {
@@ -29,7 +30,7 @@ SDL_Window* testWindow()
     int winPosY = SDL_WINDOWPOS_CENTERED;
     int winWidth = 960;
     int winHeight = 540;
-    Uint32 winIntFlags = SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZEABLE;
+    Uint32 winIntFlags = SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE;
 
     SDL_GLContext context;
     SDL_Window* window = createMainWindow(title, winPosX, winPosY, winWidth, winHeight, winIntFlags);
@@ -83,9 +84,9 @@ int main(int argc, char *argv[])
 
         while (SDL_PollEvent(&event))
         {
-            if (event.type == SDL_Quit) { running = 0; }
+            if (event.type == SDL_QuitEvent) { running = 0; }
             
-            if (event.key.keysym == SDLK_ESCAPE)
+            if (event.key.keysym.sym == SDLK_ESCAPE)
             {
                 // Handle escape
             }

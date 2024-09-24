@@ -1,6 +1,5 @@
 #include <stdio.h>
-#include <string.h>
-#include "fileRead.h"
+#include <string.h> 
 #include "input.h"
 #include "main.h"
 

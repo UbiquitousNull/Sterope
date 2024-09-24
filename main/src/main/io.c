@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <stdio.h>
 #include <errno.h>
 #include <SDL.h>
 #include "utils.h"
@@ -16,12 +15,12 @@
  ***************************************************************************************/
 
 
-char generateFilename(char *filename)
+char* generateFilename(char* filename)
 {
     time_t now;
     struct tm *timeinfo;
     char timestamp[20];
-    char genFilename;
+    char* genFilename;
 
     time(&now);
     timeinfo = localtime(&now);
@@ -35,17 +34,15 @@ char generateFilename(char *filename)
     return genFilename;
 }
 
-char createFile(const char* filename)
+FILE* createFile(const char* filename)
 {
     FILE *openFile;
 
-    if (fopen(filename, "r"))
+    if ((openFile = fopen(filename, "r")))
     {
-        fclose(filename);
-        return NULL;
+        fclose(openFile);
+        return openFile;
     }
-
-    openFile = fopen(filename, "a");
 
     if (!openFile) {
         // To implement | log "Error, io.c System could not create file." 
@@ -68,6 +65,7 @@ char createFile(const char* filename)
  *  														*
  ***********************************************************/
 #ifdef _WIN32
+#define WIN_IO_DIRCRAWL_ERROR ""
 #define snprintf _snprintf
 #include <windows.h>
 
@@ -76,17 +74,17 @@ char* dirCrawl(const char* path)
     WIN32_FIND_DATA findFileData;
     HANDLE hFind = INVALID_HANDLE_VALUE;
     char dirPath[MAX_PATH];
-    char fullPath[MAX_PATH];
+    char* fullPath = (char*)malloc(MAX_PATH * sizeof(char));
 
     if (snprintf(dirPath, MAX_PATH, "%s\\*", path) >= MAX_PATH) {
         // To implement | log "Error, Path too long: path);
-        return;
+        return WIN_IO_DIRCRAWL_ERROR;
     }
 
     hFind = FindFirstFile(dirPath, &findFileData);
     if (hFind == INVALID_HANDLE_VALUE) {
         // To implement | log "Error, FindFirstFile error: GetLastError()"
-        return;
+        return WIN_IO_DIRCRAWL_ERROR;
     }
 
     do {
@@ -112,12 +110,20 @@ char* dirCrawl(const char* path)
     FindClose(hFind);
 }
 
+void clearLastPath(char* path)
+{
+	if (path) {
+		free(path);
+	}
+}
+
 /**[Unix Section]********************************************
  *  														*
  *	This section is the I/O for Apple and Linux systems.	*
  *  														*
  ***********************************************************/
 #elif __unix__ || __APPLE__
+#define UNIX_IO_DIRCRAWL_ERROR ""
 #include <sys/stat.h>
 #include <dirent.h>
 #include <limits.h>

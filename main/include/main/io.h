@@ -1,8 +1,9 @@
 #ifndef IO_H
 #define IO_H
 
+#include <stdio.h>
 
-char createFile(const char *filename);
+FILE* createFile(const char *filename);
 char* dirCrawl(const char* path);
 
 #endif // IO_H
