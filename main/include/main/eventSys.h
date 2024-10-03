@@ -1,49 +1,42 @@
 #ifndef EVENTSYS_H
 #define EVENTSYS_H
 
-#ifdef _WIN32
-    #include <windows.h>
-	typedef SRWLOCK rwlock_t;
-    #define rwlock_init(lock) InitializeSRWLock(lock)
-    #define rwlock_read_lock(lock) AcquireSRWLockShared(lock)
-    #define rwlock_read_unlock(lock) ReleaseSRWLockShared(lock)
-    #define rwlock_write_lock(lock) AcquireSRWLockExclusive(lock)
-    #define rwlock_write_unlock(lock) ReleaseSRWLockExclusive(lock)
-#elif __unix__ || __APPLE__
-    #include <pthread.h>
-	typedef pthread_rwlock_t rwlock_t;
-    #define rwlock_init(lock) pthread_rwlock_init(lock, NULL)
-    #define rwlock_read_lock(lock) pthread_rwlock_rdlock(lock)
-    #define rwlock_read_unlock(lock) pthread_rwlock_unlock(lock)
-    #define rwlock_write_lock(lock) pthread_rwlock_wrlock(lock)
-    #define rwlock_write_unlock(lock) pthread_rwlock_unlock(lock)
-    #define rwlock_destroy(lock) pthread_rwlock_destroy(lock)
-#else	
-#error "eventSys.h | Unsupported platform: Ask UbiquitousNull for assistance and/or forgiveness."
-#endif
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdatomic.h>
+
+typedef void (*Callback)(void*);
 
 typedef struct {
-	int eventId;
-	struct handlers {
-		void (**handlers)(void*);
-		size_t count;
-		size_t maxCount;
-	} handlers;
-	rwlock_t event_rwlock;
+    atomic_int ref_count;
+    int count;
+    Callback* callbacks;
+} CallbackList;
+
+typedef struct {
+    _Atomic(CallbackList*) callback_list;
 } Event;
 
-typedef struct {
-	Event** events;
-	size_t size;
-	size_t capacity;
-	rwlock_t registry_rwlock;
-} EventRegistry;
-
-EventRegistry* createRegistry(size_t initialCapacity);
-Event* createEvent(EventRegistry* registry, int eventId, size_t initialCapacity);
-void registerHandler(Event* event, void (*handler)(void*));
+void createEvent(Event* event);
+int addCallback(Event* event, Callback cb);
+int removeCallback(Event* event, Callback cb);
 void triggerEvent(Event* event, void* data);
-void freeRegistry(EventRegistry* registry);
-void freeEvent(Event* event);
+
+#define ADD_CALLBACKS(event, ...) do {									\
+    if ((event) == NULL) {												\
+    	        														\ // fprintf(stderr, "Error: Event pointer is NULL.\n");
+    } else {															\
+        Callback callbacks[] = { __VA_ARGS__ };							\
+        size_t num_callbacks = sizeof(callbacks) / sizeof(Callback);	\
+        for (size_t i = 0; i < num_callbacks; ++i) {					\
+            if (callbacks[i] != NULL) {									\
+                addCallback(event, callbacks[i]);						\
+            } else {													\
+            															\ // fprintf(stderr, "Warning: Callback at index %zu is NULL.\n", i);
+            }															\
+        }																\
+    }																	\
+} while(0)
+
 
 #endif // EVENTSYS_H
