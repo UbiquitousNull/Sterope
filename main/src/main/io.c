@@ -4,6 +4,7 @@
 #include <errno.h>
 #include <SDL.h>
 #include "utils.h"
+#include "logging.h"
 
 
 /**[NOTE: ]******************************************************************************
@@ -17,38 +18,44 @@
 
 char* generateFilename(char* filename)
 {
-    time_t now;
-    struct tm *timeinfo;
-    char timestamp[20];
-    char* genFilename;
+	time_t now;
+	struct tm *timeinfo;
+	char timestamp[20];
+	char* genFilename;
 
-    time(&now);
-    timeinfo = localtime(&now);
+	time(&now);
+	timeinfo = localtime(&now);
 
-    strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H.%M.%S", timeinfo);
+	strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H.%M.%S", timeinfo);
 
-    genFilename = (char*)malloc(strlen(timestamp) + strlen(filename) + 2);
+	genFilename = (char*)malloc(strlen(timestamp) + strlen(filename) + 2);
 
-    sprintf(filename, "%s_%s", timestamp, genFilename);
+	snprintf(filename, MAX_FILENAME_LENGTH, "%s_%s", timestamp, genFilename);
 
-    return genFilename;
+	return genFilename;
 }
 
 FILE* createFile(const char* filename)
 {
-    FILE *openFile;
+	FILE *openFile;
+	if ((openFile = fopen(filename, "r")))
+	{
+		fclose(openFile);
+		if (!LOG_ERROR("File with name: \"%s\" already exists.", filename))
+		{
+			shutdownTotal();
+		}
+		return openFile;
+	}
 
-    if ((openFile = fopen(filename, "r")))
-    {
-        fclose(openFile);
-        return openFile;
-    }
-
-    if (!openFile) {
-        // To implement | log "Error, io.c System could not create file." 
-    }
-
-    return openFile;
+	if (!openFile) 
+	{
+		if (!LOG_ERROR("createFile() Error, File could not be created"))
+		{
+			shutdownTotal();
+		}
+	}
+	return openFile;
 }
 
 
@@ -71,24 +78,24 @@ FILE* createFile(const char* filename)
 
 char* dirCrawl(const char* path)
 {
-    WIN32_FIND_DATA findFileData;
-    HANDLE hFind = INVALID_HANDLE_VALUE;
-    char dirPath[MAX_PATH];
-    char* fullPath = (char*)malloc(MAX_PATH * sizeof(char));
+	WIN32_FIND_DATA findFileData;
+	HANDLE hFind = INVALID_HANDLE_VALUE;
+	char dirPath[MAX_PATH];
+	char* fullPath = (char*)malloc(MAX_PATH * sizeof(char));
 
-    if (snprintf(dirPath, MAX_PATH, "%s\\*", path) >= MAX_PATH) {
-        // To implement | log "Error, Path too long: path);
-        return WIN_IO_DIRCRAWL_ERROR;
-    }
+	if (snprintf(dirPath, MAX_PATH, "%s\\*", path) >= MAX_PATH) {
+		// To implement | log "Error, Path too long: path);
+		return WIN_IO_DIRCRAWL_ERROR;
+	}
 
-    hFind = FindFirstFile(dirPath, &findFileData);
-    if (hFind == INVALID_HANDLE_VALUE) {
-        // To implement | log "Error, FindFirstFile error: GetLastError()"
-        return WIN_IO_DIRCRAWL_ERROR;
-    }
+	hFind = FindFirstFile(dirPath, &findFileData);
+	if (hFind == INVALID_HANDLE_VALUE) {
+		// To implement | log "Error, FindFirstFile error: GetLastError()"
+		return WIN_IO_DIRCRAWL_ERROR;
+	}
 
-    do {
-        if (strcmp(findFileData.cFileName, ".") == 0 || strcmp(findFileData.cFileName, "..") == 0) { continue; }
+	do {
+		if (strcmp(findFileData.cFileName, ".") == 0 || strcmp(findFileData.cFileName, "..") == 0) { continue; }
 		if (snprintf(fullPath, MAX_PATH, "%s\\%s", path, findFileData.cFileName) >= MAX_PATH) {
 			// To implement | log "Full path too long: path, findFileData.cFileName"
 			continue;
@@ -101,13 +108,13 @@ char* dirCrawl(const char* path)
 			// To implement | log "File: fullPath"
 			return fullPath;
 		}
-    } while (FindNextFile(hFind, &findFileData));
+	} while (FindNextFile(hFind, &findFileData));
 
-    if (GetLastError() != ERROR_NO_MORE_FILES) {
-        // To implement | log "Error, FindNextFile error: GetLastError();"
-    }
+	if (GetLastError() != ERROR_NO_MORE_FILES) {
+		// To implement | log "Error, FindNextFile error: GetLastError();"
+	}
 
-    FindClose(hFind);
+	FindClose(hFind);
 }
 
 void clearLastPath(char* path)
@@ -130,20 +137,20 @@ void clearLastPath(char* path)
 
 char* dirCrawl(const char* path)
 {
-    struct dirent* entry;
-    DIR* dir = opendir(path);
+	struct dirent* entry;
+	DIR* dir = opendir(path);
 
-    if (dir == NULL) {
-        perror("opendir error");
-        return;
-    }
+	if (dir == NULL) {
+		perror("opendir error");
+		return;
+	}
 
-    while ((entry = readdir(dir)) != NULL) {
+	while ((entry = readdir(dir)) != NULL) {
 		char fullPath[PATH_MAX];
 
-        // Skip "." and ".."
-        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) { continue; }
-        
+		// Skip "." and ".."
+		if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) { continue; }
+		
 		if (snprintf(fullPath, sizeof(fullPath), "%s/%s", path, entry->d_name) >= sizeof(fullPath)) {
 			// To implement | log "Error, Path too long: path, entry->d_name"
 			continue;
@@ -164,11 +171,11 @@ char* dirCrawl(const char* path)
 		}
 		
 		
-    }
+	}
 
-    if (closedir(dir) == -1) {
-        // To implement | log "closedir error"
-    }
+	if (closedir(dir) == -1) {
+		// To implement | log "closedir error"
+	}
 }
 
 /**[Other]***************************************************

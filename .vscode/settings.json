@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.h": "c",
         "sdl_video.h": "c",
         "bit": "c",
         "cctype": "c",
@@ -21,7 +22,7 @@
         "gl.h": "c",
         "stdint.h": "c",
         "utils.h": "c",
-        "*.h": "c"
-	},
+        "system_error": "c"
+    },
 	"C_Cpp.errorSquiggles": "enabled"
 }

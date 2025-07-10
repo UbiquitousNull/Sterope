@@ -25,6 +25,11 @@ void shutdownMain(SDL_GLContext context, SDL_Window* window)
 	SDL_Quit();
 }
 
+void shutdownTotal()
+{
+    shutdownMain(r.context, r.window);
+}
+
 WINDOW testWindow()
 {
     const char* title = "Test Window";
