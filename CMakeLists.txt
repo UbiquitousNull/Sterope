@@ -1,4 +1,5 @@
-#   This file is for building the program into a .exe
+# # # # # # # # # # # # # # # # # # # # # # #
+#   This file is for building the program
 #
 #   DO NOT DELETE!
 #
@@ -7,32 +8,38 @@
 cmake_minimum_required(VERSION 3.15)
 project(SteropeLauncher)
 
+set(CMAKE_C_STANDARD 99)
+
 set(CORE_SOURCES
-    main/src/main.c
-    main/src/window.c
+    main/src/main/
+    # main/src/main/main.c
+    # main/src/main/SDL.c
+    # main/src/main/GL.c
+    # main/src/main/eventSys.c
+    # main/src/main/io.c
+    # main/src/main/logging.c
+    main/src/etc/GLAD/gl.c
 )
 
 set(CORE_INCLUDES
-    main/include/
+    main/include/main/
+    main/include/etc/SDL/
+    main/include/etc/GLAD/
 )
 
-set(SDL2_INCLUDE_DIR "D:/VSC/Sterope/SDL2/include/SDL2")
-set(SDL2_LIBRARY_DIR "D:/VSC/Sterope/SDL2/lib")
-
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mwindows")
-
-
-# Include and link directories
-include_directories(${SDL2_INCLUDE_DIR} ${CORE_INCLUDES})
-link_directories(${SDL2_LIBRARY_DIR})
-
-# Find SDL2 libraries
-find_library(SDL2_LIBRARY NAMES SDL2 PATHS ${SDL2_LIBRARY_DIR} NO_DEFAULT_PATH)
-find_library(SDL2MAIN_LIBRARY NAMES SDL2main PATHS ${SDL2_LIBRARY_DIR} NO_DEFAULT_PATH)
-
 find_package(SDL2 REQUIRED)
+if (SDL2_FOUND)
+    include_directories(${SDL_INCLUDE_DIRS})
+    link_libraries(${SDL_LIBRARIES})
+else()
+    message(FATAL_ERROR "SDL not found")
+endif()
 
-add_executable(SteropeLauncher ${CORE_SOURCES})
+include_directories(main/include/etc/GLAD)
+#link_libraries(${GLAD_LIBRARIES})
 
-# Linking libraries
-target_link_libraries(SteropeLauncher PRIVATE ${SDL2MAIN_LIBRARY} ${SDL2_LIBRARY})
+add_executable(SteropeLauncher WIN32 ${CORE_SOURCES})
+
+target_link_libraries(SteropeLauncher ${GLAD_LIBRARIES} SDL2::SDL2)
+
+target_include_directories(SteropeLauncher PRIVATE ${CORE_INCLUDES})

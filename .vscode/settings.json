@@ -1,0 +1,27 @@
+{
+    "files.associations": {
+        "sdl_video.h": "c",
+        "bit": "c",
+        "cctype": "c",
+        "cmath": "c",
+        "compare": "c",
+        "concepts": "c",
+        "cstdarg": "c",
+        "cstdio": "c",
+        "cstdlib": "c",
+        "cwchar": "c",
+        "type_traits": "c",
+        "limits": "c",
+        "new": "c",
+        "*.tcc": "c",
+        "cinttypes": "c",
+        "cstdint": "c",
+        "typeinfo": "c",
+        "khrplatform.h": "c",
+        "gl.h": "c",
+        "stdint.h": "c",
+        "utils.h": "c",
+        "*.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "enabled"
+}
