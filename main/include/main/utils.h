@@ -2,7 +2,7 @@
 #define UTILS_H
 
 #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
-#define RETURN_ERR(...) { fprintf(stderr, __VA_ARGS__); exit(); }
+#define RETURN_ERR(...) { fprintf(stderr, __VA_ARGS__); exit(); } // Might become deprecated, use MSGBOX_ERR instead
 #define MSGBOX_ERR(fmt, ...) do { \
     int needed = snprintf(NULL, 0, "%s:%d: " fmt, __FILE__, __LINE__, ##__VA_ARGS__); \
     if (needed > 0) { \

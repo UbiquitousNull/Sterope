@@ -2,11 +2,14 @@
  *
  *  Main program file.
  *
+ * This program currently does not run as it doesn't complete the requirements for a windows application.
+ *
  */
 
 #include <stdio.h>
 #include <stdint.h>
 
+#include "utils.h"
 #include "windowSDL2.h"
 #include "windowGl.h"
 #include "input.h"
@@ -66,7 +69,7 @@ int main(int argc, char *argv[])
 {
     if (SDL_Init(SDL_INIT_VIDEO) != 0)
     {
-        RETURN_ERR("SDL Initialization error: %s\n", SDL_GetError());
+        MSGBOX_ERR("SDL Initialization error: %s\n", SDL_GetError());
         return;
     }
 
@@ -80,28 +83,26 @@ int main(int argc, char *argv[])
         return;
     }
 
-    int running = 1;
+    
 
     parse_ini_file("defaultControls.ini", &controls_k, &controls_m);
 
     SDL_Event event;
-
+    int running = 1;
     while (running)
     {
         while (SDL_PollEvent(&event))
         {
-            if (event.type == SDL_QUIT) { running = 0; }
-            
-            if (event.key.keysym.sym == SDLK_ESCAPE)
+            if (event.type == SDL_QUIT || (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE))
             {
                 // Handle escape
 
-                shutdownMain(r.context, r.window);
+                shutdownTotal();
             }
         }
     }
 
-    shutdownMain(r.context, r.window);
+    shutdownTotal();
 
     return 0;
 }
