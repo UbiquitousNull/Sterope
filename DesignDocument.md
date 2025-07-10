@@ -55,6 +55,9 @@
     - Advanced Rendering Features
     - Physics Engine Integration
     - Networking Capabilities
+
+11. <a href="#11-Unconfirmed-Ideas">**Unconfirmed Ideas**</a>
+    - Fully Intergrated Modding Support
 </details>
 </br>
 <hr><!-- <hr style="border-width:3px;"> -->
@@ -279,4 +282,14 @@
 - **Advanced Rendering Features**: Shadows, reflections, and other graphical effects.
 - **Physics Engine Integration**: Consider integrating a physics engine like Box2D or Bullet (Currnetly just going to rely on my own).
 - **Networking Capabilities**: Add support for multiplayer features (local and/or online).
+</details>
+
+</br>
+
+## 11. Unconfirmed Ideas
+<details open>
+<summary>collapse/expand</summary>
+</br>
+
+- **Fully Intergrated Modding Support**: Allow easy development and intergration for player-made moddifictions.
 </details>
