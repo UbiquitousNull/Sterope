@@ -20,6 +20,5 @@ void renderBasicTest(SDL_Window* window)
         // Swap the front and back buffers
         SDL_GL_SwapWindow(window);
 
-        // Optional: Limit frame rate
         SDL_Delay(16);  // Roughly 60 FPS (1000ms / 60 ≈ 16ms per frame)
 }

@@ -16,6 +16,8 @@
 #include "SDL_video.h"
 #include "SDL_keyboard.h"
 
+WINDOW r = {0};
+
 void shutdownMain(SDL_GLContext context, SDL_Window* window)
 {
 	destroyGLContext(context);
@@ -23,7 +25,7 @@ void shutdownMain(SDL_GLContext context, SDL_Window* window)
 	SDL_Quit();
 }
 
-SDL_Window* testWindow()
+WINDOW testWindow()
 {
     const char* title = "Test Window";
     int winPosX = SDL_WINDOWPOS_CENTERED;
@@ -32,19 +34,18 @@ SDL_Window* testWindow()
     int winHeight = 540;
     Uint32 winIntFlags = SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE;
 
-    SDL_GLContext context;
-    SDL_Window* window = createMainWindow(title, winPosX, winPosY, winWidth, winHeight, winIntFlags);
+    r.window = createMainWindow(title, winPosX, winPosY, winWidth, winHeight, winIntFlags);
 
-    if (!window)
+    if (!r.window)
     {
-        return NULL;
+        return NULL_DETAILS;
     }
 
-    context = initGLAD2(window);
-    if (!context)
+    r.context = initGLAD2(r.window);
+    if (!r.context)
     {
-        destroySDL2Window(window);
-        return NULL;
+        destroySDL2Window(r.window);
+        return NULL_DETAILS;
     }
 
     // Here you could perform additional operations on the window, such as a brief display test
@@ -53,47 +54,49 @@ SDL_Window* testWindow()
     // destroyGLContext(context);
     // destroySDL2Window(window);
 
-    return window;
+    return r;
 }
 
 int main(int argc, char *argv[])
 {
-    if (SDL_Init(SDL_INIT_VIDEO) > 0)
+    if (SDL_Init(SDL_INIT_VIDEO) != 0)
     {
-        fprintf(stderr, "SDL Initialization error: %s\n", SDL_GetError());
-        return 1;
+        RETURN_ERR("SDL Initialization error: %s\n", SDL_GetError());
+        return;
     }
 
-    SDL_Window* window = testWindow();
+	r.valid = 1;
+	r = testWindow();
 
-    if (!testWindow())
+    SDL_Window* window = r.window;
+    if (!r.window)
     {
         SDL_Quit();
-        return 1;
+        return;
     }
 
     int running = 1;
 
-    parse_ini_file("controls.ini", &controls_k, &controls_m);
+    parse_ini_file("defaultControls.ini", &controls_k, &controls_m);
+
+    SDL_Event event;
 
     while (running)
     {
-        SDL_Event event;
-
-        
-
         while (SDL_PollEvent(&event))
         {
-            if (event.type == SDL_QuitEvent) { running = 0; }
+            if (event.type == SDL_QUIT) { running = 0; }
             
             if (event.key.keysym.sym == SDLK_ESCAPE)
             {
                 // Handle escape
+
+                shutdownMain(r.context, r.window);
             }
         }
     }
 
-    shutdownMain(window);
+    shutdownMain(r.context, r.window);
 
     return 0;
 }

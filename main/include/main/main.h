@@ -18,4 +18,11 @@
 #include "SDL.h"
 #include "SDL_video.h"
 
+typedef struct {
+	uint8_t valid;
+	SDL_GLContext context;
+	SDL_Window* window;
+} WINDOW;
+#define NULL_DETAILS (WINDOW){ .valid = 0 }
+
 #endif // MAIN_H

@@ -11,12 +11,13 @@ project(SteropeLauncher)
 set(CMAKE_C_STANDARD 99)
 
 set(CORE_SOURCES
-    main/src/main/main.c
-    main/src/main/SDL.c
-    main/src/main/GL.c
-    main/src/main/eventSys.c
-    main/src/main/io.c
-    main/src/main/logging.c
+    main/src/main/
+    # main/src/main/main.c
+    # main/src/main/SDL.c
+    # main/src/main/GL.c
+    # main/src/main/eventSys.c
+    # main/src/main/io.c
+    # main/src/main/logging.c
     main/src/etc/GLAD/gl.c
 )
 

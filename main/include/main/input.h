@@ -1,5 +1,5 @@
-#ifndef REDERER_H
-#define REDERER_H
+#ifndef INPUT_H
+#define INPUT_H
 
 #define DEFAULT_CONTOLS = "../../../main/etc/saveData/defaultControls.ini"
 
@@ -34,4 +34,4 @@ ControlsM controls_m = {0};
 
 void parse_ini_file(const char *filename, ControlsK *controls_k, ControlsM *controls_m);
 
-#endif // REDERER_H
+#endif // INPUT_H
