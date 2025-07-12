@@ -72,7 +72,7 @@ FILE* createFile(const char* filename)
  *  														*
  ***********************************************************/
 #ifdef _WIN32
-#define WIN_IO_DIRCRAWL_ERROR ""
+#define WIN_IO_DIRCRAWL_ERROR "" // This is a placeholder for Windows directory crawl errors
 #define snprintf _snprintf
 #include <windows.h>
 
@@ -84,20 +84,31 @@ char* dirCrawl(const char* path)
 	char* fullPath = (char*)malloc(MAX_PATH * sizeof(char));
 
 	if (snprintf(dirPath, MAX_PATH, "%s\\*", path) >= MAX_PATH) {
-		// To implement | log "Error, Path too long: path);
+		LOG_ERROR("Provided path is too long: %s", path);
+		free(fullPath);
+		clearLastPath(fullPath);
+		FindClose(hFind);
 		return WIN_IO_DIRCRAWL_ERROR;
 	}
 
 	hFind = FindFirstFile(dirPath, &findFileData);
 	if (hFind == INVALID_HANDLE_VALUE) {
-		// To implement | log "Error, FindFirstFile error: GetLastError()"
+		LOG_ERROR("FindFirstFile error: %d", GetLastError());
+		free(fullPath);
+		clearLastPath(fullPath);
+		FindClose(hFind);
 		return WIN_IO_DIRCRAWL_ERROR;
 	}
 
 	do {
 		if (strcmp(findFileData.cFileName, ".") == 0 || strcmp(findFileData.cFileName, "..") == 0) { continue; }
 		if (snprintf(fullPath, MAX_PATH, "%s\\%s", path, findFileData.cFileName) >= MAX_PATH) {
-			// To implement | log "Full path too long: path, findFileData.cFileName"
+			// To implement | log "Full path is too long: findFileData.cFileName"
+			LOG_ERROR("Full path is too long: %s", findFileData.cFileName);
+			free(fullPath);
+			clearLastPath(fullPath);
+			FindClose(hFind);
+			return WIN_IO_DIRCRAWL_ERROR;
 			continue;
 		}
 
@@ -105,15 +116,18 @@ char* dirCrawl(const char* path)
 			printf("Directory: %s\n", fullPath);
 			dirCrawl(fullPath);
 		} else {
-			// To implement | log "File: fullPath"
+			LOG_INFO("File: %s", fullPath);
+			// Might implement file handling here if needed
 			return fullPath;
 		}
 	} while (FindNextFile(hFind, &findFileData));
 
 	if (GetLastError() != ERROR_NO_MORE_FILES) {
-		// To implement | log "Error, FindNextFile error: GetLastError();"
+		LOG_ERROR("FindNextFile error: %d", GetLastError());
 	}
 
+	free(fullPath);
+	clearLastPath(fullPath);
 	FindClose(hFind);
 }
 

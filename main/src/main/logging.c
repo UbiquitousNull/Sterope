@@ -7,8 +7,8 @@ FILE* startLog()
 	FILE* file;
 	if (!(file = createFile("Activity_Log")))
 	{
-		MSGBOX_ERR("Failed to create log");
-		return NULL; // Fallback — MSGBOX_ERR already calls shutdownTotal
+		FATAL_ERR("Failed to create log");
+		return NULL; // Fallback — FATAL_ERR already calls main file shutdownTotal function.
 	}
 
 	return file;
@@ -38,7 +38,7 @@ int writeLog(const char* level, const char* file, int line, const char* fmt, ...
 		currentLog = startLog();
 		if (!currentLog)
 		{ 
-			MSGBOX_ERR(
+			FATAL_ERR(
 				"\n\n\n"
 				"How did we get here?\n"
 				"Context: The function call before this has an inbuilt error catch and systems shutdown call.\n"
