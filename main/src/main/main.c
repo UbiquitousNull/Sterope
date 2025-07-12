@@ -20,6 +20,8 @@
 #include "SDL_keyboard.h"
 
 WINDOW r = {0};
+ControlsK controls_k = {0};
+ControlsM controls_m = {0};
 
 void shutdownMain(SDL_GLContext context, SDL_Window* window)
 {
@@ -69,23 +71,21 @@ int main(int argc, char *argv[])
 {
     if (SDL_Init(SDL_INIT_VIDEO) != 0)
     {
-        MSGBOX_ERR("SDL Initialization error: %s\n", SDL_GetError());
-        return;
+        FATAL_ERR("SDL Initialization error: %s\n", SDL_GetError());
+        return 0;
     }
 
-	r.valid = 1;
-	r = testWindow();
+    r.valid = 1;
+    r = testWindow();
 
     SDL_Window* window = r.window;
     if (!r.window)
     {
         SDL_Quit();
-        return;
+        return 0;
     }
 
-    
-
-    parse_ini_file("defaultControls.ini", &controls_k, &controls_m);
+    //parse_ini_file("defaultControls.ini", &controls_k, &controls_m);
 
     SDL_Event event;
     int running = 1;
@@ -106,3 +106,10 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+
+#ifdef _WIN32
+#include <windows.h>
+    int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+    return main(__argc, __argv);
+}    
+#endif

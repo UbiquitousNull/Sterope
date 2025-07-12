@@ -29,9 +29,6 @@ typedef struct {
     SDL_MouseWheelDirection scroll_orientation;
 } ControlsM;
 
-ControlsK controls_k = {0};
-ControlsM controls_m = {0};
-
 void parse_ini_file(const char *filename, ControlsK *controls_k, ControlsM *controls_m);
 
 #endif // INPUT_H

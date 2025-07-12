@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
@@ -76,6 +77,13 @@ FILE* createFile(const char* filename)
 #define snprintf _snprintf
 #include <windows.h>
 
+void clearLastPath(char* path)
+{
+	if (path) {
+		free(path);
+	}
+}
+
 char* dirCrawl(const char* path)
 {
 	WIN32_FIND_DATA findFileData;
@@ -85,7 +93,6 @@ char* dirCrawl(const char* path)
 
 	if (snprintf(dirPath, MAX_PATH, "%s\\*", path) >= MAX_PATH) {
 		LOG_ERROR("Provided path is too long: %s", path);
-		free(fullPath);
 		clearLastPath(fullPath);
 		FindClose(hFind);
 		return WIN_IO_DIRCRAWL_ERROR;
@@ -94,7 +101,6 @@ char* dirCrawl(const char* path)
 	hFind = FindFirstFile(dirPath, &findFileData);
 	if (hFind == INVALID_HANDLE_VALUE) {
 		LOG_ERROR("FindFirstFile error: %d", GetLastError());
-		free(fullPath);
 		clearLastPath(fullPath);
 		FindClose(hFind);
 		return WIN_IO_DIRCRAWL_ERROR;
@@ -103,9 +109,7 @@ char* dirCrawl(const char* path)
 	do {
 		if (strcmp(findFileData.cFileName, ".") == 0 || strcmp(findFileData.cFileName, "..") == 0) { continue; }
 		if (snprintf(fullPath, MAX_PATH, "%s\\%s", path, findFileData.cFileName) >= MAX_PATH) {
-			// To implement | log "Full path is too long: findFileData.cFileName"
 			LOG_ERROR("Full path is too long: %s", findFileData.cFileName);
-			free(fullPath);
 			clearLastPath(fullPath);
 			FindClose(hFind);
 			return WIN_IO_DIRCRAWL_ERROR;
@@ -126,16 +130,8 @@ char* dirCrawl(const char* path)
 		LOG_ERROR("FindNextFile error: %d", GetLastError());
 	}
 
-	free(fullPath);
 	clearLastPath(fullPath);
 	FindClose(hFind);
-}
-
-void clearLastPath(char* path)
-{
-	if (path) {
-		free(path);
-	}
 }
 
 /**[Unix Section]********************************************

@@ -58,7 +58,7 @@ void freeEvent(Event* event)
 	rwlock_write_lock(&event->event_rwlock);
 	free(event->handlers.handlers);
 	rwlock_write_unlock(&event->event_rwlock);
-	#ifdef __unix__ || __APPLE__
+	#if defined(__unix__) || defined(__APPLE__)
 		rwlock_destroy(&event->event_rwlock);
 	#endif
 	free(event);

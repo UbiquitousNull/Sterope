@@ -1,6 +1,8 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <time.h>
+
 #include "Logging.h"
 #include "io.h"
 #include "main.h"
@@ -13,7 +15,7 @@
 	#include <winuser.h>
 
 	// This macro currently does not have a unix equivalent, as it is used for Windows message boxes.
-	// I plan to implement a similar function for Unix systems in the future. (relevant notes on line 31)
+	// I plan to implement a similar function for Unix or apple systems in the future. (relevant notes on line 31)
 	#define FATAL_ERR(fmt, ...) do { \
     int needed = snprintf(NULL, 0, "%s:%d: " fmt, __FILE__, __LINE__, ##__VA_ARGS__); \
     if (needed > 0) { \
