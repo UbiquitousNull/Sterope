@@ -6,6 +6,8 @@
  *
  */
 
+#define SDL_MAIN_HANDLED
+
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -49,7 +51,7 @@ WINDOW testWindow()
         return NULL_DETAILS;
     }
 
-    r.context = initGLAD2(r.window);
+    r.context = initialiseGLAD2(r.window);
     if (!r.context)
     {
         FATAL_ERR("Failed to initialize OpenGL context: %s\n", SDL_GetError());
@@ -66,17 +68,18 @@ WINDOW testWindow()
 
 int main(int argc, char *argv[])
 {
-    int result = MessageBoxA(NULL, "Welcome to STEROPE!", "Welcome", MB_YESNO | MB_ICONINFORMATION);
-    if (result == IDYES)
-    {
-        FATAL_ERR("You clicked Yes. Exiting the program.\n");
-        return 0;
-    }
-    else if (result == IDNO)
-    {
-        MessageBoxA(NULL, "You clicked No. Continuing with the program.\n", "Information", MB_OK | MB_ICONINFORMATION);
-    }
+    // int result = MessageBoxA(NULL, "Welcome to STEROPE!", "Welcome", MB_YESNO | MB_ICONINFORMATION);
+    // if (result == IDYES)
+    // {
+    //     FATAL_ERR("You clicked Yes. Exiting the program.\n");
+    //     return 0;
+    // }
+    // else if (result == IDNO)
+    // {
+    //     MessageBoxA(NULL, "You clicked No. Continuing with the program.\n", "Information", MB_OK | MB_ICONINFORMATION);
+    // }
 
+    SDL_SetMainReady();
     if (SDL_InitSubSystem(SDL_INIT_VIDEO) != 0)
     {
         FATAL_ERR("SDL Initialization error: %s\n", SDL_GetError());
@@ -98,6 +101,8 @@ int main(int argc, char *argv[])
         return 0;
     }
     SDL_Window* window = r.window;
+
+    // renderBasicTest(r.window);
 
     //parse_ini_file("defaultControls.ini", &controls_k, &controls_m);
 

@@ -18,7 +18,7 @@ void destroyGLContext(SDL_GLContext context)
     SDL_GL_DeleteContext(context);
 }
 
-SDL_GLContext initGLAD2(SDL_Window* window)
+SDL_GLContext initialiseGLAD2(SDL_Window* window)
 {
     SDL_GLContext glContext = SDL_GL_CreateContext(window);
     if (!glContext)

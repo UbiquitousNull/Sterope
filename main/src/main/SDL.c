@@ -34,7 +34,5 @@ SDL_Window* createMainWindow(const char* title, int winPosX, int winPosY, int wi
         return NULL;
     }
 
-    renderBasicTest(windowMain);
-
     return windowMain;
 }

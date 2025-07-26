@@ -15,6 +15,6 @@
 
 void destroyGLContext(SDL_GLContext context);
 
-SDL_GLContext initGLAD2(SDL_Window* window);
+SDL_GLContext initialiseGLAD2(SDL_Window* window);
 
 #endif // WINDOWGL_H
