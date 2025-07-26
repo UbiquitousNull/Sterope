@@ -1,6 +1,6 @@
-#include "eventSys.h"
 #include <stdlib.h>
-
+#include "multithreading.h"
+#include "eventSys.h"
 
 EventRegistry* createRegistry(size_t initialCapacity)
 {
@@ -58,9 +58,7 @@ void freeEvent(Event* event)
 	rwlock_write_lock(&event->event_rwlock);
 	free(event->handlers.handlers);
 	rwlock_write_unlock(&event->event_rwlock);
-	#if defined(__unix__) || defined(__APPLE__)
-		rwlock_destroy(&event->event_rwlock);
-	#endif
+	rwlock_destroy(&event->event_rwlock);
 	free(event);
 }
 

@@ -22,7 +22,10 @@
         "gl.h": "c",
         "stdint.h": "c",
         "utils.h": "c",
-        "system_error": "c"
+        "system_error": "c",
+        "mutex": "c",
+        "shared_mutex": "c",
+        "syncstream": "c"
     },
 	"C_Cpp.errorSquiggles": "enabled"
 }
