@@ -2,7 +2,7 @@
 #define UTILS_H
 
 #include <time.h>
-#include "Logging.h"
+#include "main.h"
 
 #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
 #define RETURN_ERR(...) { fprintf(stderr, __VA_ARGS__); exit(); } // Might become deprecated, use FATAL_ERR instead
@@ -12,7 +12,7 @@
 	#include <winuser.h>
 
 	// This macro currently does not have a unix equivalent, as it is used for Windows message boxes.
-	// I plan to implement a similar function for Unix or apple systems in the future. (relevant notes on line 31)
+	// I plan to implement a similar function for Unix or apple systems in the future. (relevant notes on line 29 and below)
 	#define FATAL_ERR(fmt, ...) do { \
     int needed = snprintf(NULL, 0, "%s:%d: " fmt, __FILE__, __LINE__, ##__VA_ARGS__); \
     if (needed > 0) { \

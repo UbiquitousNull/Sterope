@@ -1,9 +1,10 @@
-#ifndef REDERER_H
-#define REDERER_H
+#ifndef RENDERER_H
+#define RENDERER_H
 
+#include "windowGl.h"
 #include "windowSDL2.h"
 
 void renderBasicTest(SDL_Window* window);
 
 
-#endif // REDERER_H
+#endif // RENDERER_H

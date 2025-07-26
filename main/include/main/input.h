@@ -10,17 +10,10 @@
 #include "main.h"
 
 typedef struct {
-    SDL_Keycode build_menu;
-    SDL_Keycode crouch;
-    SDL_Keycode exit;
-    SDL_Keycode interact;
-    SDL_Keycode inventory;
-    SDL_Keycode modifier_key;
-    SDL_Keycode move_backward;
-    SDL_Keycode move_forward;
-    SDL_Keycode move_left;
-    SDL_Keycode move_right;
-    SDL_Keycode sprint;
+    SDL_Keycode confirm;
+    SDL_Keycode exit_cancel;
+    SDL_Keycode console_toggle;
+    SDL_Keycode fullscreen_toggle;
 } ControlsK;
 
 typedef struct {

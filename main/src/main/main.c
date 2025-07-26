@@ -8,16 +8,12 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 #include "utils.h"
 #include "windowSDL2.h"
 #include "windowGl.h"
 #include "input.h"
-#include <glad/gl.h>
-#include <KHR/khrplatform.h>
-#include "SDL.h"
-#include "SDL_video.h"
-#include "SDL_keyboard.h"
 
 WINDOW r = {0};
 ControlsK controls_k = {0};
@@ -49,20 +45,20 @@ WINDOW testWindow()
 
     if (!r.window)
     {
+        FATAL_ERR("Failed to create SDL2 window: %s\n", SDL_GetError());
         return NULL_DETAILS;
     }
 
     r.context = initGLAD2(r.window);
     if (!r.context)
     {
+        FATAL_ERR("Failed to initialize OpenGL context: %s\n", SDL_GetError());
         destroySDL2Window(r.window);
         return NULL_DETAILS;
     }
 
     // Here you could perform additional operations on the window, such as a brief display test
     // SDL_Delay(2000);
-
-    // destroyGLContext(context);
     // destroySDL2Window(window);
 
     return r;
@@ -70,21 +66,38 @@ WINDOW testWindow()
 
 int main(int argc, char *argv[])
 {
-    if (SDL_Init(SDL_INIT_VIDEO) != 0)
+    int result = MessageBoxA(NULL, "Welcome to STEROPE!", "Welcome", MB_YESNO | MB_ICONINFORMATION);
+    if (result == IDYES)
+    {
+        FATAL_ERR("You clicked Yes. Exiting the program.\n");
+        return 0;
+    }
+    else if (result == IDNO)
+    {
+        MessageBoxA(NULL, "You clicked No. Continuing with the program.\n", "Information", MB_OK | MB_ICONINFORMATION);
+    }
+
+    if (SDL_InitSubSystem(SDL_INIT_VIDEO) != 0)
     {
         FATAL_ERR("SDL Initialization error: %s\n", SDL_GetError());
         return 0;
     }
 
+    if(SDL_InitSubSystem(SDL_INIT_EVENTS) != 0)
+    {
+        FATAL_ERR("SDL Events Initialization error: %s\n", SDL_GetError());
+        SDL_Quit();
+        return 0;
+    }
+
     r.valid = 1;
     r = testWindow();
-
-    SDL_Window* window = r.window;
     if (!r.window)
     {
         SDL_Quit();
         return 0;
     }
+    SDL_Window* window = r.window;
 
     //parse_ini_file("defaultControls.ini", &controls_k, &controls_m);
 
@@ -97,11 +110,12 @@ int main(int argc, char *argv[])
             if (event.type == SDL_QUIT || (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE))
             {
                 // Handle escape
-
+                running = 0;
                 shutdownTotal();
             }
         }
     }
+    FATAL_ERR("Exiting main loop.\n");
 
     shutdownTotal();
 

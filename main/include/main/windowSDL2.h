@@ -10,9 +10,9 @@
      */
 
 #include <stdint.h>
+#include <SDL.h>
+#include <SDL_video.h>
 #include "windowGl.h"
-#include "SDL.h"
-#include "SDL_video.h"
 
 void destroySDL2Window(SDL_Window* window);
 

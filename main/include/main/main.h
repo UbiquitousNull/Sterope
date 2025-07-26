@@ -3,15 +3,18 @@
 
     /*
      *
-     *  Header file for main.c (This might be surperfluous) Note: Nvm!
+     *  Header file for main.c
+     * 
+     *  I am planning to use this file to encapsulate the main functionality of the program and to be used as a single point of access.
      *
      */
 
 #include <stdio.h>
 #include <stdint.h>
-
-#include "windowSDL2.h"
-#include "windowGl.h"
+#include "io.h"
+#include "utils.h"
+#include "logging.h"
+#include "renderer.h"
 #include "input.h"
 
 // Structures

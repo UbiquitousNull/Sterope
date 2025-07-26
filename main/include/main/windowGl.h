@@ -9,8 +9,8 @@
      *
      */
 
-#include "KHR/khrplatform.h"
-#include "glad/gl.h"
+#include <KHR/khrplatform.h>
+#include <glad/gl.h>
 #include "windowSDL2.h"
 
 void destroyGLContext(SDL_GLContext context);
