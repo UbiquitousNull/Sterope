@@ -34,13 +34,11 @@
 #elif __unix__ || __APPLE__
     #include <pthread.h>
 	#include <stdlib.h>
-	
 	typedef pthread_t thread_t;
 	typedef void* (*thread_func_t)(void*);
 	#define thread_create(thr, func, arg) (pthread_create((thr), NULL, (thread_func_t)(func), (arg)) == 0)
 	#define thread_join(thr) (pthread_join((thr), NULL) == 0)
 	#define thread_exit(retval) pthread_exit(retval)
-
 	typedef pthread_rwlock_t rwlock_t;
     #define rwlock_init(lock) pthread_rwlock_init(lock, NULL)
     #define rwlock_read_lock(lock) pthread_rwlock_rdlock(lock)
@@ -48,7 +46,11 @@
     #define rwlock_write_lock(lock) pthread_rwlock_wrlock(lock)
     #define rwlock_write_unlock(lock) pthread_rwlock_unlock(lock)
     #define rwlock_destroy(lock) pthread_rwlock_destroy(lock)
-
+	typedef pthread_mutex_t crit_t;
+	#define crit_init(lock) pthread_mutex_init(lock, NULL)
+	#define crit_lock(lock) pthread_mutex_lock(lock)
+	#define crit_unlock(lock) pthread_mutex_unlock(lock)
+	#define crit_destroy(lock) pthread_mutex_destroy(lock)
 	typedef pthread_cond_t cond_t;
 	#define cond_init(cond) pthread_cond_init(cond, NULL)
 	#define cond_destroy(cond) pthread_cond_destroy(cond)
