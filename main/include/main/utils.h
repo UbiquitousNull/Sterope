@@ -2,10 +2,7 @@
 #define UTILS_H
 
 #include <time.h>
-
 #include "Logging.h"
-#include "io.h"
-#include "main.h"
 
 #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
 #define RETURN_ERR(...) { fprintf(stderr, __VA_ARGS__); exit(); } // Might become deprecated, use FATAL_ERR instead

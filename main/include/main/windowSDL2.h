@@ -10,8 +10,7 @@
      */
 
 #include <stdint.h>
-#include <glad/gl.h>
-#include <KHR/khrplatform.h>
+#include "windowGl.h"
 #include "SDL.h"
 #include "SDL_video.h"
 

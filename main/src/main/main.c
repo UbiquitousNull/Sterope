@@ -28,6 +28,7 @@ void shutdownMain(SDL_GLContext context, SDL_Window* window)
 	destroyGLContext(context);
 	destroySDL2Window(window);
 	SDL_Quit();
+    exit(0);
 }
 
 void shutdownTotal()

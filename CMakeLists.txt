@@ -11,6 +11,7 @@ set(CORE_SOURCES
     main/src/main/eventSys.c
     main/src/main/io.c
     main/src/main/logging.c
+    main/src/main/renderer.c
     main/src/etc/GLAD/gl.c
 )
 

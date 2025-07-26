@@ -9,6 +9,7 @@
 #include <glad/gl.h>
 #include <KHR/khrplatform.h>
 #include "SDL.h"
+#include "renderer.h"
 // #include "SDL_video.h"
 
 #include "windowSDL2.h"
@@ -31,6 +32,8 @@ SDL_Window* createMainWindow(const char* title, int winPosX, int winPosY, int wi
         printf("Window creation error! SDL Error: %s\n", SDL_GetError());
         return NULL;
     }
+
+    renderBasicTest(windowMain);
 
     return windowMain;
 }

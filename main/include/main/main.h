@@ -13,10 +13,6 @@
 #include "windowSDL2.h"
 #include "windowGl.h"
 #include "input.h"
-#include <glad/gl.h>
-#include <KHR/khrplatform.h>
-#include "SDL.h"
-#include "SDL_video.h"
 
 // Structures
 typedef struct {
