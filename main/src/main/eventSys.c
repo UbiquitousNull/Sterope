@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "multithreading.h"
 #include "eventSys.h"
+#include <windows.h>
 
 EventRegistry* createRegistry(size_t initialCapacity)
 {

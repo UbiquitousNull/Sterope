@@ -98,7 +98,7 @@ char* dirCrawl(const char* path)
 		return WIN_IO_DIRCRAWL_ERROR;
 	}
 
-	hFind = FindFirstFile(dirPath, &findFileData);
+	hFind = FindFirstFile(dirPath, &findFileData); 
 	if (hFind == INVALID_HANDLE_VALUE) {
 		LOG_ERROR("FindFirstFile error: %d", GetLastError());
 		clearLastPath(fullPath);
