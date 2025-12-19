@@ -1,8 +1,8 @@
-/*
+/**
  *
  *  Main program file.
  *
- * This program currently does not run as it doesn't complete the requirements for a windows application.
+ * This program runs but only displays a test OpenGL tri-coloured triangle.
  *
  */
 
@@ -51,7 +51,7 @@ WINDOW testWindow()
         return NULL_DETAILS;
     }
 
-    r.context = initialiseGLAD2(r.window);
+    r.context = createGLContext(r.window);
     if (!r.context)
     {
         FATAL_ERR("Failed to initialize OpenGL context: %s\n", SDL_GetError());
@@ -102,9 +102,7 @@ int main(int argc, char *argv[])
     }
     SDL_Window* window = r.window;
 
-    // renderBasicTest(r.window);
-
-    //parse_ini_file("defaultControls.ini", &controls_k, &controls_m);
+    // parse_ini_file("defaultControls.ini", &controls_k, &controls_m);
 
     SDL_Event event;
     int running = 1;
@@ -118,7 +116,12 @@ int main(int argc, char *argv[])
                 running = 0;
                 shutdownTotal();
             }
+            if (event.type == SDL_KEYDOWN && event.key.keysym.mod == SDLK_LSHIFT && event.key.keysym.sym == SDLK_n)
+            {
+                
+            }
         }
+        renderBasicTest(r.window);
     }
     FATAL_ERR("Exiting main loop.\n");
 

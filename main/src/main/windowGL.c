@@ -1,4 +1,4 @@
-/*
+/**
  * 
  *  This file is meant for management of program windows GLAD2 instance
  *
@@ -18,7 +18,7 @@ void destroyGLContext(SDL_GLContext context)
     SDL_GL_DeleteContext(context);
 }
 
-SDL_GLContext initialiseGLAD2(SDL_Window* window)
+SDL_GLContext createGLContext(SDL_Window* window)
 {
     SDL_GLContext glContext = SDL_GL_CreateContext(window);
     if (!glContext)

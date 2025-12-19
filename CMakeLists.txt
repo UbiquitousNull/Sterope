@@ -6,8 +6,9 @@ set(CMAKE_C_STANDARD 99)
 # Source files
 set(CORE_SOURCES
     main/src/main/main.c
-    main/src/main/SDL.c
-    main/src/main/GL.c
+    main/src/main/windowSDL.c
+    main/src/main/windowGL.c
+    main/src/main/windowManager.c
     main/src/main/eventSys.c
     main/src/main/io.c
     main/src/main/logging.c

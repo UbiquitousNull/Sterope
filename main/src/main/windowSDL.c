@@ -1,4 +1,4 @@
-/*
+/**
  * 
  *  This file is meant for management of program windows SDL2 instance
  *

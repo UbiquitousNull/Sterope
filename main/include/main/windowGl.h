@@ -1,7 +1,7 @@
 #ifndef WINDOWGL_H
 #define WINDOWGL_H
 
-    /*
+    /**
      *
      *  Header file for window.c
      * 
@@ -11,10 +11,10 @@
 
 #include <KHR/khrplatform.h>
 #include <glad/gl.h>
-#include "windowSDL2.h"
+#include <SDL.h>
 
 void destroyGLContext(SDL_GLContext context);
 
-SDL_GLContext initialiseGLAD2(SDL_Window* window);
+SDL_GLContext createGLContext(SDL_Window* window);
 
 #endif // WINDOWGL_H

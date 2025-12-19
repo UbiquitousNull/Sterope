@@ -1,13 +1,13 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-    /*
-     *
-     *  Header file for main.c
-     * 
-     *  I am planning to use this file to encapsulate the main functionality of the program and to be used as a single point of access.
-     *
-     */
+	/**
+	 *
+	 *  Header file for main.c
+	 * 
+	 *  I am planning to use this file to encapsulate the main functionality of the program and to be used as a single point of access.
+	 *
+	 */
 
 #include <stdio.h>
 #include <stdint.h>
@@ -19,13 +19,18 @@
 
 // Structures
 typedef struct {
-	uint8_t valid;
-	SDL_GLContext context;
-	SDL_Window* window;
+	uint8_t			valid;
+	uint8_t			alive;
+	Uint32			id;
+	SDL_GLContext	context;
+	SDL_Window*		window;
+	GLuint			vao;
+	GLuint			vbo;
+	GLuint			shaderProgram;
 } WINDOW;
 
 // Macros
-#define NULL_DETAILS (WINDOW){ .valid = 0 }
+#define NULL_DETAILS (WINDOW){0}
 
 // Function prototypes
 void shutdownMain(SDL_GLContext context, SDL_Window* window);
